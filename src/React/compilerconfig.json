@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "jsx.js",
+    "inputFile": "jsx.jsx"
+  },
+  {
+    "outputFile": "mui/index.js",
+    "inputFile": "mui/index.jsx"
+  },
+  {
+    "outputFile": "about.js",
+    "inputFile": "about.jsx"
+  },
+  {
+    "outputFile": "file.js",
+    "inputFile": "file.jsx"
+  }
+]

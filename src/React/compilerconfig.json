@@ -14,5 +14,9 @@
   {
     "outputFile": "file.js",
     "inputFile": "file.jsx"
+  },
+  {
+    "outputFile": "file2.js",
+    "inputFile": "file2.jsx"
   }
 ]

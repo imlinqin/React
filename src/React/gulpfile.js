@@ -6,13 +6,13 @@ var webpackConfig = require("./webpack.config.js");
 gulp.task('webpack', function () {
 	var myConfig = Object.create(webpackConfig);
 	return gulp
-      .src('./mui/index.jsx')
+      .src('./yqf/js/index.jsx')
         .pipe(webpack(myConfig))
         .pipe(gulp.dest('./build'));
 });
 
 gulp.task('watch', function () {
-    gulp.watch('./mui/*.*', ['webpack']);
+    gulp.watch('./yqf/js/*.*', ['webpack']);
 });
 
 // 注册缺省任务

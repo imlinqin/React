@@ -1,20 +1,20 @@
 ﻿var React = require('react');
 var ReactDOM = require('react-dom');
-var Container = require('./Container');
-var NavBar = require('./NavBar');
-var ToolBar = require('./ToolBar');
+var Container = require('./Container.jsx');
+var NavBar = require('./NavBar.jsx');
+var ToolBar = require('./ToolBar.jsx');
 var  clickHandler = function(e) {
     //e.preventDefault();
     //  console.log(item);
-    //    return '22225'
+    //    return '222dd2s5'
     // this.setAttribute('id','hah');
- 
+
     console.log(e);
 };
 
 var clickHandlera=function(key, e) {
     // this.setAttribute('id','hah');
-   console.log(this);
+    console.log(this);
 };
 
 const itemLeft = {
@@ -47,18 +47,36 @@ rightNav: [itemRight, itemRight],
 
 var App = React.createClass({
 
+    getInitialState:function(){
+        return {selected:'home'}
+
+    },
+
+    ToolBarHanderClick:function(key,e){
+        this.setState({
+            selected: key
+        }, function() {
+            console.log('选中了： %s', this.state.selected);
+            console.log(this.state.selected === 'home')
+        });
+    },
+
+
     render: function () {
         return (
 
                 <Container>
                     <NavBar {...dataAll}></NavBar>
-                    <ToolBar onAction={clickHandlera}>
-                        <ToolBar.Item active icon="home" title="首页" />
-                        <ToolBar.Item icon="gear" title="设置" />
-                        <ToolBar.Item icon="info"  title="信息" />
+                    <ToolBar onAction={this.ToolBarHanderClick}>
+                        <ToolBar.Item icon="home" title="首页" eventKey="home"
+                                      active={this.state.selected === 'home'} />
+                        <ToolBar.Item icon="gear" href='#' title="设置" active={this.state.selected === 'gear'}
+                                      eventKey="gear" />
+                        <ToolBar.Item icon="info" title="信息" active={this.state.selected === 'info'}
+                                      eventKey="info" />
                     </ToolBar>
                 <div className='content'>
-
+                    ddr
                 </div>
                 </Container>
             );

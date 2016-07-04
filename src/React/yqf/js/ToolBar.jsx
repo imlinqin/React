@@ -22,7 +22,7 @@ var ToolBar = React.createClass({
         }=this.props;
 
         return(
-            <Component {...props} className={ClassNames('bar','bar-tab','tabbar-labels',className)}>
+            <Component {...props} className={ClassNames('bar bar-tab tabbar-labels',className)}>
                 {React.Children.map(children,function(child,index){
                     var {
                         eventKey,
@@ -34,7 +34,7 @@ var ToolBar = React.createClass({
                     var key = eventKey || index;
                     eventKey = eventKey || key;
                     return (
-                        <ToolBar.Item {...props} key={key}  onClick= {clickHandler.bind(child,eventKey)}  eventKey={eventKey} />
+                        <ToolBar.Item {...props} key={key}  onClick= {clickHandler.bind(null,eventKey)}  eventKey={eventKey} />
                         )
                 
                 
@@ -85,14 +85,16 @@ ToolBar.Item =React.createClass({
             ):null;
     },
     render:function(){
-        var {component:Component,
+        var {component,
         className,
+            active,
             ...props
         }=this.props;
-
-        Component = this.props.href ? 'a' : Component;
+        console.log(component);
+      var  Component = this.props.href ? 'a' : component;
+      
         return (
-            <Component {...props} className={ClassNames('tab-item',className)}>
+            <Component {...props} className={ClassNames('tab-item',className,{'active':active})}>
                 {this.renderIcon()}
                 {this.renderTitle()}
             </Component>

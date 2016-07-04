@@ -5,7 +5,7 @@ var Container = React.createClass({
     },
     getDefaultProps:function(){
         return {
-            pageName:'page'
+            //pageName:'page'
         }
     
     },
@@ -13,13 +13,13 @@ var Container = React.createClass({
      
         var {pageName,...props}=this.props;
 
-        var pageName= pageName ? "page " + pageName : pageName;
+        var pageName= pageName ? "page page-current" + pageName : 'page page-current';
         return (
-        <div className="page-group">
+       
             <div className={pageName} {...props}>
 
             </div>
-        </div>
+       
             )
     }
 });

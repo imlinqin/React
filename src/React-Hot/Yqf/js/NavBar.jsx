@@ -19,22 +19,54 @@ var NavBar = React.createClass({
     },
     renderNav:function(position){
         var nav = this.props[position + 'Nav'];
-        return nav && Array.isArray(nav)   ?  this.renderNavItemMore :null;
+        return nav && Array.isArray(nav)   ?  this.renderNavItemMore(nav,position) :null;
+
     },
+
 
     renderNavItemMore:function(nav,position){
 
-        return   !nav[1] ? nav.map(this.renderNavItem) : (<div className={position}>nav.map(this.renderNavItem)</div>);
+         
+
+        return   !nav[1] ? nav.map(this.renderNavItem) : (<div className={position}>
+            {nav.map(function(item,index){
+               
+                var classA=item.icon ? ( 'icon ' + item.icon + ' pull-'+position) : ( 'pull-'+position + ' button-link');
+              //  console.log(this);
+            return <a key={index} href={item.href } className={classA}  onClick={item.onAction.bind(item,item.title)}>{item.title}</a>
+
+        })}
+        </div>);
 
     },
-
     renderNavItem:function(item,index){
-        var classA=item[icon] ? ( 'icon ' + item.icon + ' pull-'+positon) : ( 'pull-'+positon + 'button-link');
-        return <a key={index} href={item.href } className={classA} onClick={this.props.onAction.bind(this, item)}>{item.title}</a>
+    
+    // let {
+     
+    //  title,
+    //  customIcon,
+    //  icon,
+    //  isClone,
+    //  // href,
+    //  className,
+    //  ...otherProps,
+    //} = item;
+
+    //        let itemProps = {
+    //            key: 'navbarNavItem' + index,
+    //            onClick: this.props.onAction.bind(this, item),
+    //              ...otherProps,
+    //              };
+      //  console.log(this.props.onAction);
+            var classA=item.icon ? ( 'icon ' + item.icon + ' pull-left') : ( 'pull-left' + ' button-link');
+            return <a key={index} href={item.href } className={classA} onClick={this.props.onAction}>{item.title} </a>
+    
     },
+
     render: function () {
+        var {title,headerCN,...props}=this.props;
         var headerCN = headerCN ? 'bar bar-nav ' + headerCN : headerCN;
-        var {title,...props}=this.props;
+
         return (
             <header className={headerCN} {...props}>
                 {this.renderNav('left')}

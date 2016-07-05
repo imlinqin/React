@@ -1,19 +1,4 @@
-﻿
-//使用JSX
-'use strict';
+﻿'use strict';
 
-var link = "";
-React.render(React.createElement(
-   'div',
-   null,
-   React.createElement(
-      'div',
-      null,
-      React.createElement(
-         'div',
-         { className: 'abc' },
-         'content'
-      )
-   )
-), document.getElementById('examples'));
+require('../scss/components/_switch.scss');
 

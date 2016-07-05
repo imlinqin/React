@@ -1,0 +1,33 @@
+﻿@import "_mixins.scss";
+@import "_theme";
+
+
+
+.order-invoice { background-color: #fff; margin-top: .5rem;
+    #yqfAddress { display: none; }
+    .block-title { padding-left: .5rem; position: relative;
+        .tit { line-height: 2.2rem; }
+        .label-switch {
+            position: absolute;
+            top: 50%;
+            right: .5rem;
+            @include transform(translateY(-50%));
+        }
+    }
+    .address-addbtnbox { padding-bottom: .5rem; text-align: right;
+        .btn { padding: .1rem .25rem; border: 1px solid $palette-red; color: $palette-red; border-radius: .3rem; }
+    }
+  
+    .yqf-address { display: none; }
+}
+.address-list{
+    .item-inner{display:block;}
+    .name{
+        &~.extra{
+            margin-left:.5rem;
+        }
+    }
+    .extra{
+        color:#666;
+    }
+}

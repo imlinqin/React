@@ -1,0 +1,273 @@
+﻿
+
+
+
+
+
+//----------------------------------------
+// 1. Opacity
+//----------------------------------------
+@mixin opacity($opacity: 50) {
+    opacity: $opacity / 100;
+    filter: alpha(opacity=$opacity);
+}
+
+@mixin bg-rgba($color: #fff,$opacity: 80) {
+    background-color: $color;
+    background-color: rgba($color,$opacity / 100);
+    filter: Alpha(opacity=$opacity);
+}
+
+//6、 渐变 CSS3 gradients
+@mixin linear-gradient($from, $to) { /* Fallback for sad browsers */
+    background-image: -moz-linear-gradient($from, $to); /* Opera */
+    background-image: -o-linear-gradient($from, $to); /* WebKit (Safari 4+, Chrome 1+) */
+    background: -webkit-gradient(linear, 0% 0%, 100% 0%, from($from), to($to)); 
+    background-image: -webkit-linear-gradient(top,$from, $to); /* IE10 */
+    background-image: -ms-linear-gradient($from, $to); /* W3C */
+}
+
+
+
+
+
+
+//----------------------------------------
+// 2. trangile
+//----------------------------------------
+//1. $size定义三角大小
+//2. $color定义三角颜色
+//3. $bgColor定义内嵌三角颜色
+//4. $direction定义三角方向
+//5. //其父元素需要定义为position:realtive
+%triangle-basic {
+    content: "";
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+@mixin triangle($direction, $size, $borderColor ) {
+    @extend %triangle-basic;
+
+    @if $direction == up {
+        border-bottom: $size solid $borderColor;
+        border-left: $size dashed transparent;
+        border-right: $size dashed transparent;
+    }
+    @else if $direction == right {
+        border-left: $size solid $borderColor;
+        border-top: $size dashed transparent;
+        border-bottom: $size dashed transparent;
+    }
+    @else if $direction == down {
+        border-top: $size solid $borderColor;
+        border-left: $size dashed transparent;
+        border-right: $size dashed transparent;
+    }
+    @else if $direction == left {
+        border-right: $size solid $borderColor;
+        border-top: $size dashed transparent;
+        border-bottom: $size dashed transparent;
+    }
+}
+
+
+//3、圆角
+@mixin border-radius($radius: 3px) {
+    border-radius: $radius;
+}
+
+%border-radius {
+    @include border-radius;
+}
+
+@mixin flexbox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex-wrap($fw) {
+    -webkit-flex-wrap: $fw;
+    -ms-flex-wrap: $fw;
+    flex-wrap: $fw;
+
+    @if $fw==nowrap {
+        -webkit-box-lines: single;
+        -moz-box-lines: single;
+        -ms-flex-wrap: none;
+    }
+    @else if $fw==wrap {
+        -webkit-box-lines: multiple;
+        -moz-box-lines: multiple;
+    }
+}
+
+
+@mixin flex-shrink($fs) {
+    -webkit-flex-shrink: $fs;
+    -ms-flex: 0 $fs auto;
+    flex-shrink: $fs;
+}
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+    -webkit-box-flex: $fg;
+    -webkit-flex: $fg $fs $fb;
+    -moz-box-flex: $fg;
+    -moz-flex: $fg $fs $fb;
+    -ms-flex: $fg $fs $fb;
+    flex: $fg $fs $fb;
+}
+
+@mixin justify-content($jc) {
+    @if $jc==flex-start {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+    }
+
+    @else if $jc==flex-end {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    }
+
+    @else if $jc==space-between {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+    }
+    @else if $jc==space-between {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    }
+    @else {
+        -webkit-box-pack: $jc;
+        -ms-flex-pack: $jc;
+        -webkit-justify-content: $jc;
+        justify-content: $jc;
+    }
+}
+
+@mixin align-items($ai) {
+    @if $ai==flex-start {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
+    }
+    @else if $ai==flex-end {
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
+    }
+    @else {
+        -webkit-box-align: $ai;
+        -ms-flex-align: $ai;
+        -webkit-align-items: $ai;
+        align-items: $ai;
+    }
+}
+
+@mixin align-content($ai) {
+    -ms-flex-line-pack: $ai;
+    -webkit-align-content: $ai;
+    align-content: $ai;
+}
+
+@mixin align-self($as) {
+    -ms-flex-item-align: $as;
+    -webkit-align-self: $as;
+    align-self: $as;
+}
+
+@mixin transition($d: 0ms) {
+    -webkit-transition-duration: $d;
+    transition-duration: $d;
+}
+@mixin transform($t) {
+    -webkit-transform: $t;
+    transform: $t;
+}
+@mixin translate3d($x:0, $y:0, $z:0) {
+    -webkit-transform: translate3d($x,$y,$z);
+    transform: translate3d($x,$y,$z);
+}
+@mixin animation($a) {
+    -webkit-animation: $a;
+    animation: $a;
+}
+
+@mixin hairline($position: bottom, $color: #ebebeb,$style: solid,$width: 1) {
+    $e: after !default;
+
+    @if $position==top or $position==left {
+        $e: before;
+    }
+
+    &:#{$e} {
+        content: '';
+        position: absolute;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        right: auto;
+        height: 0;
+        width: 100%;
+        border-#{$position}-width: #{$width}px;
+        border-#{$position}-style: $style;
+        border-#{$position}-color: $color;
+        display: block;
+        z-index: 15;
+        transform-origin: 50%, 0;
+        -webkit-transform-origin: 50%, 0;
+
+        @if $position==top {
+            left: 0;
+            top: 0;
+        }
+
+        @if $position==bottom {
+            left: 0;
+            bottom: 0;
+        }
+
+        @if $position==right {
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+        }
+
+        @if $position==left {
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+        }
+    }
+}
+
+@mixin hairline-remove($position: bottom) {
+    @if $position==top or $position==left {
+        &:before {
+            display: none;
+        }
+    }
+
+    @if $position==bottom or $position==right {
+        &:after {
+            display: none;
+        }
+    }
+}
+

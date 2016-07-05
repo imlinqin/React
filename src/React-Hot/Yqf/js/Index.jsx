@@ -25,22 +25,13 @@ const itemLeft = {
 console.log(itemLeft);
 const itemRight = {
     href: '#',
-    title: 'Right',
+    title: 'Right3',
     onAction: clickHandler
-};
-var itemRighta = {
-    href: '#',
-    title: 'Right',
-    onAction: clickHandler,
-    bb:function(){
-        var cc='22'
-    }
-
 };
 const dataAll = {
     title: 'Navbar',
     leftNav: [{...itemLeft, icon: 'left-nav'}],
-rightNav: [itemRight, itemRight],
+rightNav: [itemRight],
     onAction: clickHandler,
     };
 

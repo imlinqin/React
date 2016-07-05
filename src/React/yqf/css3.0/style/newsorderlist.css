@@ -1,0 +1,93 @@
+﻿.news-orderlist {
+  position: relative;
+  padding-left: 1.5rem;
+  height: 100%;
+  padding-top: .5rem; }
+  .news-orderlist:after {
+    position: absolute;
+    left: .75rem;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #dfdfdf;
+    content: '';
+    z-index: 0; }
+  .news-orderlist .item-title {
+    -webkit-transform: translateX(-1.15rem);
+    transform: translateX(-1.15rem);
+    position: relative;
+    z-index: 100;
+    margin-bottom: .2rem;
+    font-size: .9rem; }
+    .news-orderlist .item-title .icon-dot {
+      margin-right: .2rem; }
+      .news-orderlist .item-title .icon-dot:before {
+        content: '\e6c1';
+        font-size: .8rem;
+        color: #14a07d; }
+  .news-orderlist a {
+    color: #666; }
+  .news-orderlist .item-list {
+    background-color: #fff;
+    border-radius: .15rem;
+    min-height: 4rem;
+    margin-bottom: .5rem; }
+    .news-orderlist .item-list + .item-title {
+      padding-top: .4rem; }
+  .news-orderlist .datebox {
+    text-align: center;
+    padding: 0 .5rem;
+    width: 4.5rem;
+    -webkit-flex-shrink: 0;
+    -ms-flex: 0 0 auto;
+    flex-shrink: 0; }
+  .news-orderlist .date {
+    font-size: .65rem;
+    line-height: .7rem; }
+  .news-orderlist .time {
+    font-size: 1.2rem;
+    line-height: 1.5rem; }
+  .news-orderlist .info {
+    border-left: 1px solid #e9e9e9;
+    padding: .5rem .2rem .5rem .5rem;
+    font-size: .65rem;
+    color: #666; }
+
+.news-centerlist {
+  background-color: #fff; }
+  .news-centerlist .list {
+    position: relative;
+    padding: .5rem;
+    border-bottom: 1px solid #dcdcdc;
+    display: block;
+    min-height: 4.2rem; }
+  .news-centerlist .avatarbox {
+    position: absolute;
+    top: .7rem;
+    left: .5rem;
+    width: 3rem; }
+    .news-centerlist .avatarbox img {
+      border-radius: 50%;
+      display: block;
+      width: 3rem;
+      height: 3rem; }
+  .news-centerlist .infobox {
+    margin-left: 4rem; }
+  .news-centerlist .name {
+    color: #333; }
+  .news-centerlist .time {
+    color: #999;
+    font-size: .7rem; }
+  .news-centerlist .info {
+    font-size: .7rem;
+    color: #666; }
+    .news-centerlist .info a {
+      color: #666; }
+  .news-centerlist .badge {
+    position: absolute;
+    right: -.2rem;
+    top: 0;
+    background-color: #f44848;
+    color: #fff;
+    padding: 0.1rem 0.3rem 0.15rem; }
+

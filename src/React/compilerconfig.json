@@ -18,5 +18,17 @@
   {
     "outputFile": "file2.js",
     "inputFile": "file2.jsx"
+  },
+  {
+    "outputFile": "yqf/css3.0/TravelProducts.css",
+    "inputFile": "yqf/css3.0/TravelProducts.scss"
+  },
+  {
+    "outputFile": "yqf/css3.0/style/account.css",
+    "inputFile": "yqf/css3.0/style/account.scss"
+  },
+  {
+    "outputFile": "yqf/css3.0/style/intlairlist.css",
+    "inputFile": "yqf/css3.0/style/intlairlist.scss"
   }
 ]

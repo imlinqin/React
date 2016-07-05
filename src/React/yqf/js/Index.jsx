@@ -3,6 +3,9 @@ var ReactDOM = require('react-dom');
 var Container = require('./Container.jsx');
 var NavBar = require('./NavBar.jsx');
 var ToolBar = require('./ToolBar.jsx');
+var Switch = require('./Switch.jsx');
+
+
 var  clickHandler = function(e) {
     //e.preventDefault();
     //  console.log(item);
@@ -11,7 +14,10 @@ var  clickHandler = function(e) {
 
     console.log(e);
 };
-
+var handleSwitch=function() {
+  //  console.log(this.getValue());
+    console.log(this);
+};
 var clickHandlera=function(key, e) {
     // this.setAttribute('id','hah');
     console.log(this);
@@ -40,7 +46,7 @@ var itemRighta = {
 const dataAll = {
     title: 'Navbar',
     leftNav: [{...itemLeft, icon: 'left-nav'}],
-rightNav: [itemRight, itemRight],
+rightNav: [itemRight],
     onAction: clickHandler,
     };
 
@@ -56,10 +62,18 @@ var App = React.createClass({
         this.setState({
             selected: key
         }, function() {
-            console.log('选中了： %s', this.state.selected);
-            console.log(this.state.selected === 'home')
+           // console.log('选中了： %s', this.state.selected);
+       //  console.log(this)
         });
     },
+    customerClick:function(){
+    console.log("344")
+    
+    },
+   handleSwitcha: function(e) {
+      console.log(e.getValue());
+     // console.log(e);
+},
 
 
     render: function () {
@@ -73,7 +87,10 @@ var App = React.createClass({
                         <ToolBar.Item icon="gear" href='#' title="设置" active={this.state.selected === 'gear'}
                                       eventKey="gear" />
                         <ToolBar.Item icon="info" title="信息" active={this.state.selected === 'info'}
-                                      eventKey="info" />
+                                      eventKey="info" >
+                            <Switch onValueChange={this.handleSwitcha} defaultChecked name='uu' />
+                            <span onClick={this.customerClick}>dfsrdrd</span>
+                        </ToolBar.Item>
                     </ToolBar>
                 <div className='content'>
                     ddr

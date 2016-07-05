@@ -1,0 +1,51 @@
+﻿@import "../mixins";
+@import "../flight";
+@import "../filter";
+
+.date-tickets-bar {
+    .buttons-tab { background-color: #f44848; }
+    .button { height: 2.2rem; line-height: 2.2rem; color: #fff; font-size: .6rem;
+        &.active { border-bottom: none; color: #f44848; border-radius: .3rem; background-color: #fff; height: 1.75rem; line-height: 1.75rem; margin-top: .2rem; font-size: .7rem; }
+    }
+}
+.flight-list {
+    .change-info {
+        width: 2.5rem;
+        @include transform(translate(0,.4rem))
+    }
+    .tax {
+        @include transform(translate(0,.5rem));
+        font-size: .55rem;
+    }
+    .price {
+        @include transform(translate(0,1.5rem));
+        i { font-size: .6rem; color: #666; margin-left: .1rem; }
+    }
+    .item-list {min-height:4.7rem;
+        &:before {  }
+         .price{right:10%;}
+         .tax{right:3%;}
+          .change-info {left:25%}
+    }
+    .item-listbox {
+        .item-list {padding:0 .25rem 0 .5rem;
+            min-height: 2rem;
+            line-height: 2rem;
+          &:before{display:none}
+        }
+        .price{
+            font-size:.7rem;
+            em{
+            font-size:1rem;
+            }
+        }
+    }
+    .discount{margin-left:.6rem;}
+    .rebook{
+        position:absolute;top:50%;@include transform(translate(-50%,-60%));left:50%;z-index:100;border-bottom:1px dashed #0077ed;
+        display:block;line-height:1rem;
+    }
+    .bookbtn{
+        border-radius:.2rem;background-color:$palette-red;color:#fff;padding:.3rem .5rem;margin-left:.5rem;
+    }
+}

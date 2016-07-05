@@ -34,15 +34,15 @@ var ToolBar = React.createClass({
                     var key = eventKey || index;
                     eventKey = eventKey || key;
                     return (
-                        <ToolBar.Item {...props} key={key}  onClick= {clickHandler.bind(null,eventKey)}  eventKey={eventKey} />
+                        <ToolBar.Item {...props} key={key} onClick={clickHandler.bind(null,eventKey)} eventKey={eventKey} />
                         )
-                
-                
+
+
                 })}
 
             </Component>
 
-       
+
         )
 
     }
@@ -51,7 +51,7 @@ var ToolBar = React.createClass({
 ToolBar.Item =React.createClass({
 
     propTypes:{
-    
+
         component:React.PropTypes.any,
         icon:React.PropTypes.string,
         title:React.PropTypes.string,
@@ -75,7 +75,7 @@ ToolBar.Item =React.createClass({
         var {icon,}=this.props;
         var iconClass='icon-'+ icon;
         return icon ? (
-            <span key= 'tabbarIcon'  className={ClassNames('icon',iconClass)}></span>
+            <span key='tabbarIcon' className={ClassNames('icon',iconClass)}></span>
             ):null;
     },
     renderTitle(){
@@ -84,25 +84,34 @@ ToolBar.Item =React.createClass({
             <span className='tab-label' key='tabarTitle'>{title}</span>
             ):null;
     },
+   
     render:function(){
         var {component,
         className,
             active,
+            children,
             ...props
         }=this.props;
-        console.log(component);
-      var  Component = this.props.href ? 'a' : component;
-      
+       // console.log(component);
+        var  Component = this.props.href ? 'a' : component;
+
         return (
             <Component {...props} className={ClassNames('tab-item',className,{'active':active})}>
-                {this.renderIcon()}
-                {this.renderTitle()}
+
+
+                {children ? this.props.children :[
+          this.renderIcon(),
+          this.renderTitle(),
+              ]}
+               
+
+
             </Component>
-            
-            
+
+
             )
 
-    
+
     }
 })
 

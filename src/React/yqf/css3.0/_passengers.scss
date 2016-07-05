@@ -1,0 +1,124 @@
+﻿@import "_mixins";
+@import "_theme";
+
+.passengers-form {margin-bottom:.5rem;
+    .list-block { position: relative; margin-bottom: .5rem; }
+    .listbox {
+        /*.list-block:first-child {
+            .del-passenger { display: none; }
+            ul { padding-left: 0; }
+        }*/
+    }
+    .block-title { padding:.5rem 0 .2rem .5rem; position: relative; min-height: 2.2rem; background-color: #fff;border-bottom:1px solid #ebebeb;
+        .dsc { font-size: .6rem; color: #666; }
+        .tit { font-size: .8rem; line-height:1rem;}
+        .add-passenger { position: absolute; top: 50%; right: .5rem;; z-index: 100; font-size: .6rem; padding: .3rem .5rem;@include transform(translateY(-50%)); background-color:$palette-red;color:#fff;border-radius:3px;padding:.2rem .5rem;
+        }
+    }
+    .item-input { position: relative; margin-bottom: 0; margin-top: 0; border-bottom: 1px#dcdcdc solid;
+                  @include flex(1 1 100%);
+        & ~ .item-input { margin-left: .75rem; }
+       
+    }
+    .firstname { width: 35%; }
+    .lastname { width: 65%; }
+    .idnumber { width: 60%; }
+    .papers { width: 40%; }
+    .type-title {
+        position: absolute;
+        top: .2rem;
+        left: .25rem;
+        color: #999;
+        font-size: .6rem;
+        @include transform(translate3d(0,0,0));
+        pointer-events: none;
+        & ~ input { padding-top: .8rem; height: 2.5rem; }
+        & ~ select { padding-top: .8rem; height: 2.5rem; padding-left: 0; }
+        &.active {
+            font-size: .8em;
+            @include transform(translate3d(0,.5rem,0));
+        }
+    }
+    .del-passenger {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 100;
+        @include transform(translateY(-50%));
+        margin-top: -.25rem;
+        padding: .5rem;
+        &:before { content: '\e624'; font-size: 1rem; color: $palette-red; }
+        & + ul { padding-left: 1.2rem; }
+    }
+    .add-btnbox { background-color: #fff; padding: .5rem;
+        .button { width: 60%; height: 1.9rem; line-height: 1.9rem; border: 2px solid $palette-red; color: #d45151; font-size: .8rem;
+            .icon-sign {
+                &:before { content: '\e653'; font-size: 1rem; }
+            }
+        }
+    }
+}
+.passengers-list {
+    .item-inner { display: block; }
+    .label-checkbox ~ .item-inner { padding-left: 2rem; }
+    .extra { color: #666;
+        & + .extra { margin-left: .5rem; }
+    }
+    .edit {
+        position: absolute;
+        top: 50%;
+        right: .5rem;
+        @include transform(translateY(-50%));
+        border: 1px solid #0077ed;
+        font-size: .7rem;
+        border-radius: 3px;
+        z-index: 101;
+        padding: .2rem .4rem;
+    }
+    .papers-id{
+        font-size:.65rem;
+    }
+    .papers{padding-right:2rem;color:#666;
+        input{margin:0 .1rem 0 .05rem;border:1px solid #eee; border-radius:2px;}
+        .tit{
+            @include flex-shrink(0);
+        }
+        span{
+            white-space:nowrap;
+        }
+    }
+    
+  
+}
+.passengers-common{background-color:#fff;padding:0 .5rem .5rem .5rem;
+    label{
+        display:block;position:relative;font-size:.7rem;
+    }
+    .item-inner{min-height:1.8rem;padding-right:.5rem;
+        &:after{display:none;}
+    }
+    .hint{
+        background-color:#fff9df;font-size:.6rem;color:#666;padding-left:.1rem;
+        span +span{ margin-left:.8rem;}
+    }
+    .icon-hint{
+        &:before{
+            content:'\e6a4';color:#fbc16a;
+        }
+    }
+}
+.passengers-add-popup{
+    background-color:#f6f6f6
+}
+.form-txt-hint{
+    color:#999;font-size:.7rem;padding-left:.75rem;line-height:1.5rem;padding-top:.25rem;
+}
+
+.passengers-select-list{
+    .txt{
+        color:#999;
+    }
+    .name{
+        color:#333;
+    }
+}

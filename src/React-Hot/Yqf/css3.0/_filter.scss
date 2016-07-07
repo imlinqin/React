@@ -1,0 +1,52 @@
+﻿@import "_mixins";
+@import "_theme";
+
+/*=============机票筛选=============*/
+
+.filter-menu { float: left; width: 30%; text-align: center; border-right: 1px solid #ddd; box-sizing: border-box;
+    li { height: 2rem; line-height: 2rem; border-bottom: 1px solid #ddd; font-size: .75rem; color: rgba(0,0,0,.7); margin-right: -1px; 
+         &:last-child{
+             border-bottom:none;
+         }
+    }
+    li a { position: relative; display: block; color: #333; }
+    .active { background: #fff; border-bottom: 1px solid #ddd; }
+    li.dot span:before { content: ''; position: absolute; left: -12px; top: 50%; width: 8px; height: 8px; margin-top: -4px; background: #ff9913; border-radius: 50%; }
+    .long-title{
+        font-size:.65rem;
+    }
+}
+
+.filter-content { float: left; width: 70%; height: 100%; overflow: auto; background: #fff;
+    ul { margin-left: 10px; overflow: auto; border: none; }
+    .list-block { margin-top: 0; margin-bottom: 0; }
+    .item-content { padding-left: 0; }
+    .item-inner { padding-left: 10px;
+        img { width: 12px; margin-right: 5px; }
+    }
+    .item-divider { background-color: #fff; color: #999; padding: .5rem; border-bottom: 1px solid #dedede; }
+}
+.picker-filter { height: 320px;
+    .toolbar { background-color: $palette-red; color: #fff; }
+    .sub-hd { height: 40px; line-height: 40px; padding: 0 10px; border: 1px solid #ccc; }
+    .sub-bd { height: 85%; height: -webkit-calc(100% - 40px); height: -moz-calc(100% - 40px); height: calc(100% - 40px); }
+    form { height: 100%; }
+}
+.flight-fliter {
+    &.popup-mini {height:60%;background-color: #f5f5f5;
+        .subbar {  border-bottom: 1px solid #ccc; }
+       .bar ~ .popup-inner{overflow:hidden}
+    }
+    form { height: 100%; }
+    .list-block{
+        .item-inner{
+            display:block;
+        }
+    }
+    .reset-btn{
+         background-color:transparent;
+         border:none;
+    }
+}
+
+/*=============机票筛选  end=============*/

@@ -30,5 +30,9 @@
   {
     "outputFile": "yqf/css3.0/style/intlairlist.css",
     "inputFile": "yqf/css3.0/style/intlairlist.scss"
+  },
+  {
+    "outputFile": "yqf/css3.0/common.css",
+    "inputFile": "yqf/css3.0/common.scss"
   }
 ]

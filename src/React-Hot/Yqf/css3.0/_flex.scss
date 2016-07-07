@@ -1,0 +1,43 @@
+﻿@import "_mixins";
+.flexbox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex-start {
+    @include justify-content(flex-start);
+    @extend .flexbox
+}
+
+.flex-between {
+    @include justify-content(space-between);
+    @extend .flexbox
+}
+.flex-around{
+    @include justify-content(space-around);
+    @extend .flexbox;
+}
+.flex-center {
+    @include justify-content(center);
+    @extend .flexbox
+}
+.flex-end {
+    @include justify-content(flex-end);
+    @extend .flexbox
+}
+.flex-items-center {
+  
+
+    @include align-items(center)
+}
+.flex-items-top {
+    @include align-items(flex-start)
+}
+.flex-wrap{
+    @include flex-wrap(wrap)
+}
+.flex-shrink{
+    @include flex-shrink(0)
+}

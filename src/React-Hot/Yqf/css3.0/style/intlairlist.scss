@@ -24,9 +24,11 @@
 
     &:before {
         display: block;
-        background-color: #0d7268; 
+        background-color: #0d7268;
     }
-
+    .check-tit{
+        display:block;color:#fff; font-size:.75rem;
+    }
     .icon {
         &:before {
             color: #fee0e2;
@@ -39,7 +41,7 @@
 
     .label-switch {
         overflow: visible;
-
+        height:auto;
         .checkbox {
             height: 1rem;
             font-size: .6rem;
@@ -50,7 +52,7 @@
             line-height: 1rem;
             top: 0.05rem;
             color: #fff;
-
+            display:block;
             &:after {
                 border-radius: 50%;
                 width: .8rem;

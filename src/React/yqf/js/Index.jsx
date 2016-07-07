@@ -82,14 +82,14 @@ var App = React.createClass({
                 <Container>
                     <NavBar {...dataAll}></NavBar>
                     <ToolBar onAction={this.ToolBarHanderClick}>
-                        <ToolBar.Item icon="home" title="首页" eventKey="home"
+                        <ToolBar.Item icon="filter" title="筛选" eventKey="home"
                                       active={this.state.selected === 'home'} />
-                        <ToolBar.Item icon="gear" href='#' title="设置" active={this.state.selected === 'gear'}
+                        <ToolBar.Item icon="price" href='#' title="低价优先" active={this.state.selected === 'gear'}
                                       eventKey="gear" />
-                        <ToolBar.Item icon="info" title="信息" active={this.state.selected === 'info'}
+                        <ToolBar.Item icon="info" title="全程付款" active={this.state.selected === 'info'}
                                       eventKey="info" >
                             <Switch onValueChange={this.handleSwitcha} defaultChecked name='uu' />
-                            <span onClick={this.customerClick}>dfsrdrd</span>
+                            <span onClick={this.customerClick}>全程付款</span>
                         </ToolBar.Item>
                     </ToolBar>
                 <div className='content'>

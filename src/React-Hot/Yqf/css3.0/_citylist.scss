@@ -1,0 +1,64 @@
+﻿@import "_mixins";
+@import "_theme";
+
+.city-tabbar {
+    &:after { display: none; }
+    background-color: transparent; }
+.city-search-list {
+    .item-content {
+     display:block;
+        overflow:hidden;
+        padding-top:.2rem;
+        &:after{
+            content:'';
+            height:1px;
+            width:100%;
+            position:absolute;bottom:0;left:.75em;
+            background-color:#e7e7e7;
+        }
+       p{line-height:normal}
+    }
+    .name,.enname{white-space:nowrap;text-overflow:ellipsis;display:inline-block;overflow:hidden;}
+    .name { width:78%;vertical-align:bottom}
+    .enname{font-size:.6rem;color:#999;width:100%;}
+    .citycode { color: #999;display:inline-block; }
+}
+.city-list-title{
+    color:#999;font-size:.6rem;padding-left:.75rem;margin:.5rem 0 .2rem 0;
+    .subtit{
+        font-size:.55rem;margin-left:.2rem;
+    }
+}
+.city-list{overflow:hidden;
+    padding:0 .75rem;
+    .name{
+        display:block;padding:.1rem .25rem;border:1px solid #ccc;color:#333;width:23.5%;white-space:nowrap;overflow:hidden;
+        border-radius:4px;text-overflow:ellipsis;float:left;font-size:.7rem;text-align:center;
+        background-color:#fff;
+        margin:0 2% .3rem 0;
+        &:active{
+            opacity:.6;
+        }
+        &:nth-child(4n){
+            margin-right:0;
+        }
+    }
+    .active{
+        background-color:#f44848;color:#fff;border:0;
+    }
+}
+.city-searchbar { height: 2.6rem;
+    .searchbar { background-color: $palette-main; height: 2.6rem;
+        .search-input input { height: 1.8rem;
+            &::-webkit-input-placeholder {font-size:.55rem;}
+            &:-moz-placeholder {font-size:.55rem;}
+           &::-moz-placeholder {font-size:.55rem;}
+        }
+    }
+    .searchbar-btn { color: #fff; margin-top: .2rem; }
+    & ~ .bar-header-mult { top: 4.8rem; }
+      & ~ .content { top: 4.8rem; }
+}
+.bar-header-mult.yqfCityTabs ~ .content{
+    top:6.6rem;
+}

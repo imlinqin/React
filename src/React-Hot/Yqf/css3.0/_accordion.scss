@@ -1,0 +1,62 @@
+@import "_mixins";
+
+/* === Accordion === */
+.list-block {
+    .accordion-item-toggle {
+        cursor: pointer;
+        @include transition(300ms);
+        .item-inner {
+            padding-right: 35px;
+
+            
+        }
+        html:not(.watch-active-state) &:active, &.active-state {
+           @include transition(0ms);
+            background-color: #d9d9d9;
+            > .item-inner {
+               @include hairline-remove(bottom);
+            }
+        }
+    }
+    .accordion-item-toggle, .accordion-item > .item-link {
+        .item-inner {
+           @include transition(300ms);
+            &:after {
+               @include transition(300ms);
+            }
+            -webkit-transition-property: background-color;
+            transition-property: background-color;
+        }
+    }
+    
+    .accordion-item-expanded {
+        .accordion-item-toggle .item-inner, > .item-link .item-inner {
+            @include hairline-remove(bottom);
+        }
+    }
+        
+
+    .accordion-item {
+        .content-block, .list-block {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        ul {
+            padding-left: 0;
+        }
+    }
+}
+.accordion-item-content {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    font-size: 14px;
+    @include transition(300ms);
+    @include transform(translate3d(0,0,0));
+    .accordion-item-expanded > &{
+        height: auto;
+    }
+    html.android-4 & {
+       @include transform(none);
+    }
+}

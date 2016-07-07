@@ -1,0 +1,139 @@
+﻿@import "_mixins";
+@import "_theme";
+
+.block { display: block; }
+.vam { vertical-align: middle; }
+.hide { display: none; }
+ul, li { padding: 0; margin: 0; list-style: none; }
+.w100{width:100%;}
+.text-center { text-align: center; }
+.text-over { overflow: hidden; -o-text-overflow: ellipsis; -ms-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; width: 100%; }
+.text-nowrap{
+    white-space:nowrap;
+}
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.ofh { overflow: hidden; }
+.gray0 { color: #000; }
+.gray3 { color: #333; }
+.gray6 { color: #666; }
+.gray9 { color: #999; }
+.white { color: white; }
+.bg-white { background-color: white; }
+.radius50 { border-radius: 50%; }
+.fb { font-weight: bold; }
+.fn { font-weight: normal; }
+.ft16 { font-size: 16px; }
+.ft18 { font-size: 18px; }
+.ft20 { font-size: 20px; }
+.ft14 { font-size: 14px; }
+.ft12 { font-size: 12px; }
+.ft24 { font-size: 24px; }
+.ft26 { font-size: 26px; }
+
+
+.ml10 { margin-left: 10px; }
+.ml20 { margin-left: 20px; }
+.mr10 { margin-right: 10px; }
+.ml5 { margin-left: 5px; }
+.mr5 { margin-right: 5px; }
+.mr20 { margin-right: 20px; }
+.mt10 { margin-top: 10px; }
+.mt5 { margin-top: 5px; }
+.mb10 { margin-bottom: 10px; }
+.mb20 { margin-bottom: 20px; }
+.mb5 { margin-bottom: 5px; }
+.mg10{margin:10px;}
+.pt10 { padding-top: 10px; }
+.pt5 { padding-top: 5px; }
+.pr10 { padding-right: 10px; }
+.pb10 { padding-bottom: 10px; }
+.pb5 { padding-bottom: 5px; }
+.pl10 { padding-left: 10px; }
+.pd10 { padding: 10px; }
+.pl15{padding-left:15px;}
+
+
+.price {
+    color: $palette-eye;
+}
+
+.price em {
+    font-size: 18px;
+    margin-left: 2px;
+}
+
+.textareabox {
+    border: 1px solid #cbcbcb;
+    width: 100%;
+    padding: 5px;
+}
+
+.border-top {
+    @extend .position-r;
+    @include hairline(top)
+}
+
+.border-bottom {
+    @extend .position-r;
+    @include hairline(bottom)
+}
+
+.border-left {
+    @extend .position-r;
+    @include hairline(left)
+}
+
+.border-right {
+    @extend .position-r;
+    @include hairline(right)
+}
+
+.item-side {
+    @include flex-shrink(0)
+}
+
+
+
+/*定位*/
+.position-a {
+    position: absolute;
+}
+
+.position-r {
+    position: relative;
+}
+
+.position-s {
+    position: static;
+}
+
+.position-x-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+.position-y-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+.position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+}
+/*通用浮动*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}

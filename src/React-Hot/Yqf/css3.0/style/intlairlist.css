@@ -629,12 +629,17 @@
   .tabbar-labels:before {
     display: block;
     background-color: #0d7268; }
+  .tabbar-labels .check-tit {
+    display: block;
+    color: #fff;
+    font-size: .75rem; }
   .tabbar-labels .icon:before {
     color: #fee0e2; }
   .tabbar-labels .tab-label {
     color: #fee0e2; }
   .tabbar-labels .label-switch {
-    overflow: visible; }
+    overflow: visible;
+    height: auto; }
     .tabbar-labels .label-switch .checkbox {
       height: 1rem;
       font-size: .6rem;
@@ -644,7 +649,8 @@
       border: 1px solid #fff;
       line-height: 1rem;
       top: 0.05rem;
-      color: #fff; }
+      color: #fff;
+      display: block; }
       .tabbar-labels .label-switch .checkbox:after {
         border-radius: 50%;
         width: .8rem;

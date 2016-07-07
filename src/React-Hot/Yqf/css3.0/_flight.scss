@@ -1,0 +1,257 @@
+﻿@import "_mixins.scss";
+@import "_theme";
+
+.preloader-hint { height: 30px; line-height: 30px; padding: 0 0 0 10px; text-align: left; color: #666; font-size: 11px; position: relative;width:100%;background-color:#f6f6f6;overflow:hidden;
+    .icon-hint { margin-left: 2px;
+        &:before { content: '\e635'; color: #22bbfb; font-size: 16px; }
+    }
+    .price { color: #f44848; font-size: 16px; }
+    .icon-preloader { position: absolute; left: 0; top: 0; display:none;  width:100%;height:30px; background-color: #0b866f; @include transform(translateZ(0));
+&.open{transition:left 5s linear;-webkit-transition:left 5s linear;}
+        &:before { content: '\e661'; color: #fff; font-size: 30px;position:relative;top:0;z-index:100;display:inline-block;
+                   transform:translateY(2%);-webkit-transform:translateY(2%)}
+        &:after{
+            content:'';width:100%;position:absolute;left:11px;top:0;height:30px;
+           background-color:#444548;
+        }
+    .subbg{
+         position: absolute; left: 10px; top: 0;z-index:90;
+         @include triangle(right,12px,#0b866f);
+         border-bottom-width:16px;
+         border-top-width:14px;
+    }
+    }
+    .bg{display:none;width:0;color:#fff;padding-left:10px;font-size:14px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;line-height:30px;}
+    .number{color:#fff;}
+    &.active {
+         .icon-preloader {display:inline-block;z-index:100;}
+         .bg{display:block;
+             background-color: #0b866f; width:100%;height:30px;position:absolute;left:0;top:0;
+         }
+    }
+}
+.buttons-tab{
+    &:after{display:none;}
+}
+.next-select-hint { background-color: #eeeeee; color: #999; padding: 5px 10px; }
+.flight-leg { background-color: #7cc657; height: 20px; line-height: 20px; text-align: center; border-radius: 3px; display: inline-block; color: #fff; font-size: .6rem; padding: 0 .25rem; }
+.next-flight-title { background-color: #fff9de; border-bottom: 1px solid #f5f5f5; height: 30px; line-height: 30px; padding-left: 10px; font-size: 14px; position: relative;
+    .flight-leg { margin-right: 7px; }
+
+    .tickets-tension { height: .8rem; line-height: .8rem; top: .2rem; padding: 0 .2rem; right: 5%; }
+    .all-time{right:5%;}
+    .afresh-btn{
+        position:absolute;right:.75rem;top:0;font-size:.65rem;color: lighten($palette-main,10%);
+    }
+}
+
+
+.flight-policy { height: 30px; line-height: 30px; background-color: #edf5ff; font-size: 12px; width: 100%; padding: 0 10px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: #666;
+    .staff-name { color: $palette-blue; padding: 0 2px; }
+}
+
+.confirm-flight-list {
+    .sidebox, .right-box { padding-top: 2px; position: relative; padding-right: 20px; text-align: right; min-width: 80px; }
+    .afresh-btn { border: 1px solid $palette-red; color: $palette-red; border-radius: 3px; padding: 5px 10px; font-size: 12px; position: absolute; top: 50%; transform: translateY(-50%); -webkit-transform: translateY(-50%); width: 70px; left: 0; }
+    .afresh-link { position: absolute; right: 10px; top: 0; }
+    .accordion-item { background-color: #fff9de; }
+}
+.flightlist-bar { background-color: #252525;
+    &:before { display: none; }
+}
+.flight-attention-hint { font-size: .6rem; line-height: 1.2rem; padding-left: .5rem; color: #666; }
+.flight-extra-info { border-top: 1px solid #dedede; background-color: #fff; padding: 0 .5rem; height: 1.8rem; line-height: 1.8rem;
+    .flight-price { font-size: .65rem; color: #666; }
+    .ticket-change-rule { font-size: .65rem; color: #4992f3; }
+}
+.tickets-tension { position: absolute; right: 10.2%; border: 1px solid $palette-red; padding: 0 .2rem; color: $palette-red; border-radius: .15rem; font-size: .55rem; }
+.intlflight-list { color: #666; font-size: .6rem;
+    &.confirm-flight {
+        .item-list {
+            &:before { display: none; }
+            .afresh-btn {
+                @include transform(translate(-1rem,1rem));
+            }
+            .alltime { right: 1rem; }
+        }
+    }
+    li { background-color: #fff; margin-bottom: .25rem;
+        &.out {
+            .item-list { display: none; }
+        }
+    }
+    .info{
+        line-height:.7rem;
+    }
+    .air-ico{margin-right:.1rem;width:.7rem;height:.7rem;display:inline-block;@include transform(translateY(-.1rem))}
+    .item-list { position: relative; min-height: 4.4rem; display: block; color: #888;
+        & > span, .change-info, .infobox, .pricebox { position: absolute; top: auto; left: auto; }
+        &:before {
+            position: absolute;
+            right: 2%;
+            top: 50%;
+            @include transform(translateY(-50%));
+            content: '\e643';
+            color: $palette-red;
+            font-size: 1rem;
+        }
+        &.mult:before { content: '\e616'; }
+         .change-info {left:23%}
+         .price,.tax,.seat-warn{right:10%}
+    }
+    .seat-warn{
+        @include transform(translate(0px, 3.4rem)); 
+        color:$palette-red
+    }
+    .time { font-size: 1rem; color: #333;
+        &.arrive {
+            @include transform(translate(0,.5rem));
+            left: 45%;
+        }
+        &.dep {
+            @include transform(translate(.5rem,.5rem));
+        }
+         &.arrive em {
+             font-size:.6rem;display:inline-block;@include transform(translateY(-.3rem));color:#999;
+         }
+    }
+    .subtime { font-size: .8rem; color: #333;
+        &.arrive {
+            @include transform(translate(1.3rem,2rem));
+        }
+      
+        &.dep {
+            @include transform(translate(1.3rem,.5rem));
+        }
+        &.dep em,&.arrive em {
+             font-size:.45rem;display:inline-block;@include transform(translateY(-.3rem));
+         }
+    }
+    .infobox {
+        @include transform(translate(0,2.9rem));
+        width: 100%;
+        padding: 0 .5rem;
+        .info {
+            & ~ .info {
+                &:before {
+                    content: '';
+                    border-left: 1px solid #dcdcdc;
+                    height: .6rem;
+                    margin-right: .2rem;
+                    @include transform(translateY(.05rem))
+                }
+            }
+        }
+    }
+    .airport { display: inline-block; width: 15vw;
+        &.arrive {
+            @include transform(translate(0,1.9rem));
+            left: 45%;
+        }
+        &.dep {
+            @include transform(translate(.5rem,1.9rem));
+        }
+    }
+    .subairport {
+        &.arrive {
+            @include transform(translate(4.3rem,2.2rem));
+        }
+        &.dep {
+            @include transform(translate(4.3rem,.7rem));
+        }
+    }
+    .line-sign {
+        height: 2.2rem;
+        display: block;
+        width: 3px;
+        background-color: #ccc;
+        @include transform(translate(.8rem,.75rem));
+        &:before { background-color: #ccc; content: ""; height: .4rem; left: -.14rem; top: 0; position: absolute; width: .4rem; display: block; border-radius: 50%; z-index: 1; }
+        &:after { background-color: #ccc; content: ""; height: .4rem; left: -.14rem; bottom: 0; position: absolute; width: .4rem; display: block; border-radius: 50%; z-index: 1; }
+    }
+    .price {
+        text-align: right;
+        font-size: .8rem;
+        @include transform(translate(0,.4rem));
+        em { font-size: 1.1rem; }
+    }
+    .tax {
+        @include transform(translateY(-.2rem));
+        @include transform(translate(0,1.9rem));
+        font-size: .55rem;
+    }
+    .show-swith {margin-left:.2rem; color:#36c1fb;  position:absolute;right:5%; }
+    .change-info {
+        width: 3rem;
+        height: 2rem;
+        display: block;
+        @include transform(translate(0,.2rem));
+        .change-num { position: absolute; top: .35rem; left: 0; font-size: .5rem; color: #999; width: 100%; text-align: center;
+            em { margin: 0 .1rem; }
+        }
+        .change-city { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); text-align: center; font-size: .55rem; color: #999; width: 100%; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .change-sym { position: absolute; top: 1.1rem; left: 0; width: 100%; border-bottom: 1px solid #ccc;
+            &:before { position: absolute; right: -.05rem; top: -.25rem; content: ""; 
+                       width: 0;
+    height: 0;
+    border-bottom: .3rem solid #ccc;
+    border-right: .3rem solid transparent; }
+        }
+    }
+    .alltime { position: absolute; right: 10.2%; top: 0; }
+    .tickets-tension { bottom: -.85rem; }
+    .afresh-btn {
+        @include transform(translate(-10%,1rem));
+        right: 0;
+        border-radius: .15rem;
+        border: 1px solid $palette-red;
+        padding: .1rem .25rem;
+        line-height: 1rem;
+        color: $palette-red;
+    }
+    .terminal { position: absolute; top: 0; right: -.6rem; }
+    .airport-name { overflow: hidden; width: 100%; text-overflow: ellipsis; white-space: nowrap; display: inline-block; }
+    .item-listbox { display: none; transform: translate3d(0,0,0); -webkit-transform: translate3d(0,0,0); transition: height 300ms; -webkit-transition: height 300ms;
+        &.active { display: block; }
+        .item-list { background-color: #fff9de; border-bottom: 1px dotted #dcdcdc;
+            &:last-child { border: none; }
+        }
+    }
+    .item-detail { background-color: #e6f9fb; border-left: 5px solid #999; box-shadow: 1px 1px 3px #ccc inset; height: auto; overflow: hidden; display: none;
+        &.active { display: block; }
+    }
+    .detail-list { position: relative; height: 3.5rem;
+        & > span { position: absolute; }
+    }
+    .subinfobox { position: absolute; right: .5rem; top: .5rem;
+        span { display: block; }
+        .subinfo { position: relative; }
+        .number{color:$palette-main}
+        .air-ico { position: absolute; left: -.9rem; top: .15rem; }
+    }
+    .change-list { position: relative; text-align: center; height: .8rem;
+        &:after {
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            content: "";
+            border-bottom: 1px dashed #ccc;
+            height: 0;
+            @include transform(translateY(.4rem));
+        }
+        span {
+            position: absolute;
+            padding: 0 .5rem;
+            left: 50%;
+            @include transform(translateX(-50%));
+            z-index: 10;
+            background-color: #e6f9fb;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+

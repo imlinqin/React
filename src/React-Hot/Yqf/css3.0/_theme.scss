@@ -1,0 +1,31 @@
+﻿//主色调--------------------------
+$palette-main: #f44848 !default;
+//辅助色---------------------------
+$palette-sub: #c62e2e !default;
+//点缀色--按钮颜色---------------------------
+$palette-eye: #f44848   !default;
+//一起飞 绿色辅助色
+$palette-yqfsub:#006a60;
+//灰度--------------------------------
+$palette-white: #fff;
+$palette-white-opacity: rgba($palette-white,.8) !default;
+$palette-gray-light: #f0f0f0 !default;
+$palette-gray-ccc: #ccc;
+$palette-gray-999: #999;
+$palette-gray-666: #666;
+$palette-gray-333: #333;
+$palette-black: #000;
+//其他通用颜色
+$palette-blue: #0077ed !default;
+$palette-green: #3ec638 !default;
+$palette-yellow: #feef6d !default;
+$palette-orange: #ff8e01 !default;
+$palette-red: #cc3131 !default;
+//其他通用颜色
+$palette-price: #cc3131 !default;
+
+
+//首页色调
+$homeNavbarColor:$palette-main;
+
+

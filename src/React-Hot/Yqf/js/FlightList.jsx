@@ -24,15 +24,43 @@ FlightList.item = React.createClass({
         var {className,href,component,flightDate,...props}=this.props;
         var Component= href ? 'a' : component;
         console.log(flightDate);
-        var spanHtml=[];
+        var detaiHtml=[];
 
         flightDate.forEach(function(item,index){
 
+
+            //console.log(item[0].depDate);
+            //console.log(item.pop().depDate);
             item.forEach(function(subItem,key){
+                var detaiTransfer = <div className="change-list"><span>{subItem.depTerminal}</span></div>;
 
+                detaiTransfer = key >0 ? detaiTransfer : null;
+                var detailList=[
+detaiTransfer,
+<div className="detail-list">
+    <span className="line-sign"></span>
+                                                <span className="subtime dep">{subItem.depDate}</span>
+                                                <span className="subairport dep"><em className="airport-name" title="CN">{subItem.depTerminal}</em><em className="terminal">T3</em></span>
+                                                <span className="subtime arrive">{subItem.arriveDAte}<em></em></span>
+                                                <span className="subairport arrive">
+                                                     <em className="airport-name" title="VN">{subItem.arriveTerminal}</em>
+                                                    <em className="terminal">T2</em>
+                                                </span>
+                                                <div className="subinfobox">
+                                                    <span className="subinfo">
+                                                        <img src={subItem.airline.logo} /><i>{subItem.airline.name}</i>
+                                                    </span>
+                                                    <span className="subinfo">
+                                                        {subItem.flightNo}
+                                                    </span>
+                                                    <span className="subinfo">
+                                                        {subItem.flightTime}
+                                                    </span>
+                                                </div>
 
+</div>];
 
-                spanHtml.push(subItem.depDate);
+                detaiHtml.push(detailList);
             });
             //     console.log(item.depDate + '22');
 
@@ -41,6 +69,11 @@ FlightList.item = React.createClass({
             <li {...props}
                 className={classNames(className)}>
                         <Component className="item-list">
+                            { flightDate.map(function(item,index){
+
+
+                                 return (
+                                     <div>
                             <span className="time dep">15: 15</span>
                             <span className="airport dep"><em className="airport-name">广州新白云机场</em><em className="terminal"></em></span>
                             <span className="time arrive">08: 15<em>+1</em></span>
@@ -64,59 +97,19 @@ FlightList.item = React.createClass({
                                 <span className="alltime"><i className="icon-clock"></i>15h0m   17</span>
                             </div>
                             <em className="hui-angle"><i>惠</i></em>
+                                     </div>
+                            )
+
+
+                             })}
+
                         </Component>
                            <div className="item-detail">
-                            <div className="item-link">
-
-                                { flightDate.map(function(item,index){
-
-                                     return      item.map(function(subItem,key){
-
-                                         if(key%2==0){
-                                            return <div className="detail-list ">
-                                                <span className="line-sign"></span>
-                                                <span className="subtime dep">{subItem.depDate}</span>
-                                                <span className="subairport dep"><em className="airport-name" title="CN">{subItem.depTerminal}</em><em className="terminal">T3</em></span>
-                                                <span className="subtime arrive">{subItem.arriveDAte}<em></em></span>
-                                                <span className="subairport arrive">
-                                                     <em className="airport-name" title="VN">{subItem.arriveTerminal}</em>
-                                                    <em className="terminal">T2</em>
-                                                </span>
-                                                <div className="subinfobox">
-                                                    <span className="subinfo">
-                                                        <img src={subItem.airline.logo} /><i>{subItem.airline.name}</i>
-                                                        
-                                                    </span>
-                                                    <span className="subinfo">
-                                                        {subItem.flightNo}
-                                                    </span>
-                                                    <span className="subinfo">
-                                                        {subItem.flightTime}
-                                                    </span>
-                                                </div>
-                                         </div>
-                                         
-
-                                         }
-                                       else {
-                                  return       <div className="change-list">
-                                            <span>
-                                        {subItem.transfer}
-                                         </span>
-                                         </div>
-                                         }
-
-                                     });
-                                   
-
-                                 })}
+                               <div className="item-link" >
+                               {detaiHtml}
+                                   </div>
 
 
-                                
-                                
-                            </div>
-
-                            
                            </div>
                         <div className="item-detail active" style={{display:'none'}}>
                             <div className="item-link a_selectflight">

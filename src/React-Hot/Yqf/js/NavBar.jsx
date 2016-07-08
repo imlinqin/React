@@ -62,7 +62,7 @@ var NavBar = React.createClass({
     render: function () {
         var {title,headerCN,...props}=this.props;
         var headerCN = headerCN ? 'bar bar-nav ' + headerCN : headerCN;
-
+        console.log('重绘');
         return (
             <header className={headerCN} {...props}>
                 {this.renderNav('left')}

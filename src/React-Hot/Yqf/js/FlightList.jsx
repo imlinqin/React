@@ -7,7 +7,7 @@ var FlightList = React.createClass({
         var {className,...props}=this.props;
         return (
             <div className={classNames('intlflight-list privilege',className)}>
-                <ul  {...props}></ul>
+                <ul {...props}></ul>
             </div>
         )
     }
@@ -17,18 +17,29 @@ FlightList.item = React.createClass({
 
     getDefaultProps:function(){
         return {
-        component:'div',
+            component:'div',
         }
     },
-
-
-
     render: function () {
-        var {className,href,...props}=this.props;
-        var component= href ? 'a' : component ;
+        var {className,href,component,flightDate,...props}=this.props;
+        var Component= href ? 'a' : component;
+        console.log(flightDate);
+        var spanHtml=[];
+
+        flightDate.forEach(function(item,index){
+
+            item.forEach(function(subItem,key){
+
+
+
+                spanHtml.push(subItem.depDate);
+            });
+            //     console.log(item.depDate + '22');
+
+        });
         return(
-            <li  {...props}
-        className={classNames(className)}>
+            <li {...props}
+                className={classNames(className)}>
                         <Component className="item-list">
                             <span className="time dep">15: 15</span>
                             <span className="airport dep"><em className="airport-name">广州新白云机场</em><em className="terminal"></em></span>
@@ -54,7 +65,60 @@ FlightList.item = React.createClass({
                             </div>
                             <em className="hui-angle"><i>惠</i></em>
                         </Component>
-                        <div className="item-detail active">
+                           <div className="item-detail">
+                            <div className="item-link">
+
+                                { flightDate.map(function(item,index){
+
+                                     return      item.map(function(subItem,key){
+
+                                         if(key%2==0){
+                                            return <div className="detail-list ">
+                                                <span className="line-sign"></span>
+                                                <span className="subtime dep">{subItem.depDate}</span>
+                                                <span className="subairport dep"><em className="airport-name" title="CN">{subItem.depTerminal}</em><em className="terminal">T3</em></span>
+                                                <span className="subtime arrive">{subItem.arriveDAte}<em></em></span>
+                                                <span className="subairport arrive">
+                                                     <em className="airport-name" title="VN">{subItem.arriveTerminal}</em>
+                                                    <em className="terminal">T2</em>
+                                                </span>
+                                                <div className="subinfobox">
+                                                    <span className="subinfo">
+                                                        <img src={subItem.airline.logo} /><i>{subItem.airline.name}</i>
+                                                        
+                                                    </span>
+                                                    <span className="subinfo">
+                                                        {subItem.flightNo}
+                                                    </span>
+                                                    <span className="subinfo">
+                                                        {subItem.flightTime}
+                                                    </span>
+                                                </div>
+                                         </div>
+                                         
+
+                                         }
+                                       else {
+                                  return       <div className="change-list">
+                                            <span>
+                                        {subItem.transfer}
+                                         </span>
+                                         </div>
+                                         }
+
+                                     });
+                                   
+
+                                 })}
+
+
+                                
+                                
+                            </div>
+
+                            
+                           </div>
+                        <div className="item-detail active" style={{display:'none'}}>
                             <div className="item-link a_selectflight">
                                 <div className="detail-list ">
                                     <span className="line-sign"></span>
@@ -108,15 +172,11 @@ FlightList.item = React.createClass({
                                     </div>
                                     <a className="more privilege-modal-btn">详情信息</a>
                                 </div>
-
                             </div>
-
                         </div>
-
-
-                    </li>
+            </li>
             )
-        
+
 
 
     },

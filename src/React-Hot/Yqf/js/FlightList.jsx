@@ -20,97 +20,53 @@ FlightList.item = React.createClass({
             component:'div',
         }
     },
-    render: function () {
-        var {className,href,component,flightDate,...props}=this.props;
+
+    renderList:function(){
+
+        var {className,href,component,flightDate,onAction,...props}=this.props;
         var Component= href ? 'a' : component;
-        console.log(flightDate);
-        var detaiHtml=[];
-
-        flightDate.forEach(function(item,index){
-
-
-            //console.log(item[0].depDate);
-            //console.log(item.pop().depDate);
-            item.forEach(function(subItem,key){
-                var detaiTransfer = <div className="change-list"><span>{subItem.depTerminal}</span></div>;
-
-                detaiTransfer = key >0 ? detaiTransfer : null;
-                var detailList=[
-detaiTransfer,
-<div className="detail-list">
-    <span className="line-sign"></span>
-                                                <span className="subtime dep">{subItem.depDate}</span>
-                                                <span className="subairport dep"><em className="airport-name" title="CN">{subItem.depTerminal}</em><em className="terminal">T3</em></span>
-                                                <span className="subtime arrive">{subItem.arriveDAte}<em></em></span>
-                                                <span className="subairport arrive">
-                                                     <em className="airport-name" title="VN">{subItem.arriveTerminal}</em>
-                                                    <em className="terminal">T2</em>
-                                                </span>
-                                                <div className="subinfobox">
-                                                    <span className="subinfo">
-                                                        <img src={subItem.airline.logo} /><i>{subItem.airline.name}</i>
-                                                    </span>
-                                                    <span className="subinfo">
-                                                        {subItem.flightNo}
-                                                    </span>
-                                                    <span className="subinfo">
-                                                        {subItem.flightTime}
-                                                    </span>
-                                                </div>
-
-</div>];
-
-                detaiHtml.push(detailList);
-            });
-            //     console.log(item.depDate + '22');
-
-        });
-        return(
-            <li {...props}
-                className={classNames(className)}>
-                        <Component className="item-list">
-                            { flightDate.map(function(item,index){
-
-
-                                 return (
-                                     <div>
-                            <span className="time dep">15: 15</span>
-                            <span className="airport dep"><em className="airport-name">广州新白云机场</em><em className="terminal"></em></span>
-                            <span className="time arrive">08: 15<em>+1</em></span>
-                            <span className="airport arrive"><em className="airport-name">悉尼机场</em><em className="terminal">T1</em></span>
+        var item=flightDate;
+        var listactive=onAction;
+        return (
+           
+                                          <li {...props}
+                                              className={classNames(className)}>
+               <Component className="item-list" onClick={listactive.bind(null,this)}>
+                            <span className="time dep">{item[0].depDate}</span>
+                            <span className="airport dep"><em className="airport-name">{item[0].arriveTerminal}</em><em className="terminal">T2</em></span>
+                            <span className="time arrive">{item[1].arriveDAte}<em>+1</em></span>
+                            <span className="airport arrive"><em className="airport-name">{item[item.length-1].arriveTerminal} </em><em className="terminal">T4</em></span>
                             <div className="change-info">
                                 <span className="change-num">
-                                    转<em>1</em>次
+                                    转<em>{item.length-1}</em>次
                                 </span>
                                 <i className="change-sym"></i>
-                                <span className="change-city">胡志明市</span>
+                                <span className="change-city">{item[0].arriveTerminal}</span>
                             </div>
-                            <span className="price">¥<em>4646</em></span>
+                            <span className="price">
+                                ¥<em>
+                                 {this.sum(item,'price')}
+                                </em>
+                            </span>
+
                             <span className="tax">全程含税价</span>
                             <div className="infobox">
                                 <span className="info">
-                                    <img className="air-ico vam" />越航 VN503 机型：321
+                                    <img className="air-ico vam" src={item[0].airline.logo} />{item[0].airline.name} {item[0].flightNo}
                                 </span>
                                 <em className="show-swith">
                                     详情
                                 </em>
-                                <span className="alltime"><i className="icon-clock"></i>15h0m   17</span>
+                                <span className="alltime"><i className="icon-clock"></i>{item[0].flightTime}</span>
                             </div>
                             <em className="hui-angle"><i>惠</i></em>
-                                     </div>
-                            )
 
+               </Component>
 
-                             })}
-
-                        </Component>
-                           <div className="item-detail">
-                               <div className="item-link" >
-                               {detaiHtml}
-                                   </div>
-
-
-                           </div>
+                                              <div className="item-detail">
+                               <div className="item-link">
+                                              {item.map(this.renderListDetail)}
+                                                </div></div>
                         <div className="item-detail active" style={{display:'none'}}>
                             <div className="item-link a_selectflight">
                                 <div className="detail-list ">
@@ -167,11 +123,55 @@ detaiTransfer,
                                 </div>
                             </div>
                         </div>
-            </li>
+                                          </li>
+        
+            )
+    },
+    renderListDetail:function(subItem,index){
+        return (
+                                <div>
+                                    {index>0 ? <div className="change-list">
+                                    <span>
+                                        停留 2h0m  中转地 墨尔本机场
+                                    </span>
+                                </div> :null}
+                                         <div className="detail-list">
+                                              <span className="line-sign"></span>
+                                                          <span className="subtime dep">{subItem.depDate}</span>
+                                                          <span className="subairport dep"><em className="airport-name" title="CN">{subItem.depTerminal}</em><em className="terminal">T3</em></span>
+                                                          <span className="subtime arrive">{subItem.arriveDAte}<em></em></span>
+                                                          <span className="subairport arrive">
+                                                               <em className="airport-name" title="VN">{subItem.arriveTerminal}</em>
+                                                              <em className="terminal">T2</em>
+                                                          </span>
+                                                          <div className="subinfobox">
+                                                              <span className="subinfo">
+                                                                  <img src={subItem.airline.logo} /><i>{subItem.airline.name}</i>
+                                                              </span>
+                                                              <span className="subinfo">
+                                                                  {subItem.flightNo}
+                                                              </span>
+                                                              <span className="subinfo">
+                                                                  {subItem.flightTime}
+                                                              </span>
+                                                          </div>
+                                         </div>
+                                         </div>
             )
 
-
-
+    },
+    //数组求和
+    sum:function(item,name){
+        var nameSum=0;
+        item.map(function(sitem,index){
+            return nameSum =   nameSum + Number(sitem[name]);
+        })
+        return nameSum;
+    },
+    render: function () {
+        var {className,href,component,flightDate,...props}=this.props;
+        console.log(flightDate);
+        return this.renderList();
     },
 
 });

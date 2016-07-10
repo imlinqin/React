@@ -17,6 +17,7 @@ var clickHandler = function (e) {
 };
 
 
+
 var handleSwitch = function () {
     //  console.log(this.getValue());
     console.log(this);
@@ -53,35 +54,54 @@ rightNav: [itemRight],
     onAction: clickHandler,
     };
 // 机票数据
-    const flightDate=[[
-        
-        {
-                        depDate:'12:35',
-                        arriveDAte:'18:11',
-                        depTerminal:'广州新白云机场',
-                        arriveTerminal:'新加坡樟宜机场',
-                        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
-                        flightNo:'A380',
-                        flightTime:'8h3m'
-        },
-      
-        {
-                        depDate:'14:35',
-                        arriveDAte:'18:11',
-                        depTerminal:'新加坡樟宜机场',
-                        arriveTerminal:'广州新白云机场',
-                        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
-                        flightNo:'A380',
-                        flightTime:'8h3m'
-                    },
-      
-    ]];
+const flightDate=[[
+
+    {
+        depDate:'12:35',
+        arriveDAte:'18:11',
+        depTerminal:'广州新白云机场',
+        arriveTerminal:'新加坡樟宜机场',
+        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
+        flightNo:'A380',
+        flightTime:'8h3m',
+        price:'3689',
+        tax:'269',
+        monetaryUnit:'&yen;',
+
+    },
+
+    {
+        depDate:'14:35',
+        arriveDAte:'18:11',
+        depTerminal:'新加坡樟宜机场',
+        arriveTerminal:'美国新白云机场',
+        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
+        flightNo:'A380',
+        flightTime:'8h3m',
+        price:'3001',
+        tax:'289',
+        monetaryUnit:'&yen;',
+    },
+    {
+        depDate:'14:35',
+        arriveDAte:'18:11',
+        depTerminal:'新加坡樟宜机场',
+        arriveTerminal:'美国新白云机场',
+        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
+        flightNo:'A380',
+        flightTime:'8h3m',
+        price:'3000',
+        tax:'289',
+        monetaryUnit:'&yen;',
+    },
+
+]];
 
 
 var App = React.createClass({
 
     getInitialState: function () {
-        return { selected: 'home' }
+        return { selected: 'home',listActive:false, }
 
     },
 
@@ -98,7 +118,10 @@ var App = React.createClass({
         //  console.log(e.getValue());
         // console.log(e);
     },
-
+    flightClick:function(e){
+        console.log(e)
+    
+    },
     getInitialState: function () {
         return {
             left: 0,
@@ -109,7 +132,7 @@ var App = React.createClass({
     },
     componentWillUpdate: function () {
 
-         this.preloaderPlane(true);
+        this.preloaderPlane(true);
         //  window.cancelAnimationFrame(this.dong);
         //console.log(!this.state.donghua)
     },
@@ -155,15 +178,17 @@ var App = React.createClass({
         });
     },
     render: function () {
+        
+        var abc=this.flightClick;
         return (
             <Container>
                 <NavBar {...dataAll}></NavBar>
                 <ToolBar onAction={this.ToolBarHanderClick}>
                     <ToolBar.Item icon="filter" title="筛选" eventKey="home"
-                                  active={this.state.selected === 'home'} />
-                    <ToolBar.Item icon="price" href='#' title="低价优先" active={this.state.selected === 'gear'}
+                                  active={this.state.selected ==='home' } />
+                    <ToolBar.Item icon="price" href='#' title="低价优先" active={this.state.selected ==='gear' }
                                   eventKey="gear" />
-                    <ToolBar.Item icon="info" title="全程付款" active={this.state.selected === 'info'}
+                    <ToolBar.Item icon="info" title="全程付款" active={this.state.selected ==='info' }
                                   eventKey="info">
                         <Switch onValueChange={this.handleSwitcha} defaultChecked name='uu' />
                         <span className='check-tit' onClick={this.customerClick}>全程付款</span>
@@ -187,13 +212,14 @@ var App = React.createClass({
                         <span>2016-07-27 周三</span>
                         <i className="ml5">广州 -悉尼</i>
                     </div>
-                    <FlightList >
-                        <FlightList.item flightDate={flightDate}>
-
-                        </FlightList.item>
-
+                    <FlightList>
+                     
+                        {flightDate.map(function(item,index){
+                           
+                     return   <FlightList.item flightDate={item} key={index} onAction={abc} />
+                        })}
                     </FlightList>
-                    
+
                 </div>
 
             </Container>
@@ -206,4 +232,3 @@ var App = React.createClass({
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
-

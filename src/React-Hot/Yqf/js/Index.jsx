@@ -6,6 +6,7 @@ var ToolBar = require('./ToolBar.jsx');
 var Switch = require('./Switch.jsx');
 var SubBar = require('./SubBar.jsx');
 var FlightList = require('./FlightList.jsx');
+//var Accordion = require('./Accordion.jsx');
 
 var clickHandler = function (e) {
     //e.preventDefault();
@@ -54,7 +55,91 @@ rightNav: [itemRight],
     onAction: clickHandler,
     };
 // 机票数据
-const flightDate=[[
+    const flightDate=[
+        [
+            [
+
+    {
+        depDate:'12:35',
+        arriveDAte:'18:11',
+        depTerminal:'广州新白云机场',
+        arriveTerminal:'新加坡樟宜机场',
+        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
+        flightNo:'A380',
+        flightTime:'8h3m',
+        price:'3689',
+        tax:'269',
+        monetaryUnit:'&yen;',
+
+    },
+
+    {
+        depDate:'14:35',
+        arriveDAte:'18:11',
+        depTerminal:'新加坡樟宜机场',
+        arriveTerminal:'美国新白云机场',
+        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
+        flightNo:'A380',
+        flightTime:'8h3m',
+        price:'3001',
+        tax:'289',
+        monetaryUnit:'&yen;',
+    },
+    {
+        depDate:'14:35',
+        arriveDAte:'18:11',
+        depTerminal:'新加坡樟宜机场',
+        arriveTerminal:'美国新白云机场',
+        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
+        flightNo:'A380',
+        flightTime:'8h3m',
+        price:'3000',
+        tax:'289',
+        monetaryUnit:'&yen;',
+    },
+
+],[
+
+    {
+        depDate:'12:35',
+        arriveDAte:'18:11',
+        depTerminal:'广州新白云机场',
+        arriveTerminal:'新加坡樟宜机场',
+        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
+        flightNo:'A380',
+        flightTime:'8h3m',
+        price:'3689',
+        tax:'269',
+        monetaryUnit:'&yen;',
+
+    },
+
+    {
+        depDate:'14:35',
+        arriveDAte:'18:11',
+        depTerminal:'新加坡樟宜机场',
+        arriveTerminal:'美国新白云机场',
+        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
+        flightNo:'A380',
+        flightTime:'8h3m',
+        price:'3001',
+        tax:'289',
+        monetaryUnit:'&yen;',
+    },
+    {
+        depDate:'14:35',
+        arriveDAte:'18:11',
+        depTerminal:'新加坡樟宜机场',
+        arriveTerminal:'美国新白云机场',
+        airline:{logo:'http://airlineico.b0.upaiyun.com/TZ.png!16x16',name:'国泰航空'},
+        flightNo:'A380',
+        flightTime:'8h3m',
+        price:'3000',
+        tax:'289',
+        monetaryUnit:'&yen;',
+    },
+
+]],[
 
     {
         depDate:'12:35',
@@ -97,6 +182,15 @@ const flightDate=[[
 
 ]];
 
+    flightDate.map(function(item,index){
+        if(item[0] instanceof  Array ) {
+            console.log('Array')
+        }
+       else  if(item[0] instanceof  Object ) {
+            console.log('Object')
+       }
+        console.log(item[0]);
+    });
 
 var App = React.createClass({
 
@@ -213,12 +307,12 @@ var App = React.createClass({
                         <i className="ml5">广州 -悉尼</i>
                     </div>
                     <FlightList>
-                     
                         {flightDate.map(function(item,index){
-                           
                      return   <FlightList.item flightDate={item} key={index} onAction={abc} />
                         })}
                     </FlightList>
+
+                    
 
                 </div>
 

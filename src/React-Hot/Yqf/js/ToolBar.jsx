@@ -84,7 +84,10 @@ ToolBar.Item =React.createClass({
             <span className='tab-label' key='tabarTitle'>{title}</span>
             ):null;
     },
-   
+    handleSort:function(){
+         PubSub.publish('sort');
+    
+    },
     render:function(){
         var {component,
         className,
@@ -96,9 +99,7 @@ ToolBar.Item =React.createClass({
         var  Component = this.props.href ? 'a' : component;
 
         return (
-            <Component {...props} className={ClassNames('tab-item',className,{'active':active})}>
-
-
+            <Component {...props} className={ClassNames('tab-item',className,{'active':active})} >
                 {children ? this.props.children :[
           this.renderIcon(),
           this.renderTitle(),

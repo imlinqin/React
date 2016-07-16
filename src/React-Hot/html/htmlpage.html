@@ -1,0 +1,106 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta charset="gb2312" />
+        <title></title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <ul id="ul">
+            <li id="a" data-id="74" class="pp">小王<em id="oo">74</em></li>
+            <li  id="b" data-id="65" class="pp">小李<em>65</em></li>
+            <li  id="c" data-id="56" class="pp">小张<em>56</em></li>
+            <li  id="d" data-id="84" class="pp">小周<em>84</em></li>
+            <li  id="e" data-id="63" class="pp">小艾<em>63</em></li>
+         <li  id="e"  class="pp">小艾ddd<em>63</em></li>
+        </ul><div>
+        <em>100</em>
+        </div>
+        <div>
+        <em>60</em>
+        </div>
+        <script>
+            var aa = document.getElementById('ul');
+            var bb = document.getElementById('a');
+           // console.log(.parentNode);
+            function $(o){return document.getElementById(o)}
+            function makeArray( obj ){
+                var arr = [];
+                for (var i = 0, len = obj.length; i < len; i++) {
+                    if (obj[i].getAttribute('data-id')) { 
+                        arr.push(obj[i]);
+                        }
+                }
+                return arr;
+            }
+            function asc( x, y ){ //升序
+                return parseInt( x.getAttribute('data-id') ) - parseInt( y.getAttribute('data-id') );
+            }
+ 
+            function makeOrder( wrapper, obj, order ){
+                var order = order || 'asc';
+                var wrapper = $( wrapper );
+              var obj = wrapper.children;
+                //console.log(obj);
+                var arr;    
+                arr = makeArray(obj); // 将对象转为数组
+                console.log(arr);
+                if ( order == 'asc' ){
+                    arr.sort( asc );
+                } else {
+                    arr.sort( asc ).reverse();
+                }    
+                for( var i = 0, len = arr.length; i < len; i++ ){
+                    wrapper.appendChild( arr[i] )
+                }
+            }
+             
+            makeOrder( 'ul', 'em', 'asc' )
+             
+ var objectList2 = new Array();
+ function WorkMate(name, age) {
+     var n = 32;
+            this.name=name;
+            var _age = age;
+   
+            this.age = age;
+                
+
+                
+            }
+        objectList2.push(new WorkMate('jack',20));
+        objectList2.push([{age:'66'},2,3,4,5]);
+        objectList2.push(new WorkMate('stone',26));
+        objectList2.push(new WorkMate('mandy', 23));
+
+        function abc() {
+
+           return '33'
+        }
+            console.log(objectList2)
+        //按年龄从小到大排序
+            objectList2.sort(function (a, b) {
+                
+                if (!a.age) {
+                  a.age=  a[0].age
+                }
+                if (!b.age) {
+                  b.age=  b[0].age
+                }
+                function age() {
+                    return 'age';
+                }
+                console.log(a.age +"+"+ b.age)
+                return a.age - b.age;
+            });
+        for(var i=0;i<objectList2.length;i++){
+            document.writeln('<br />age:'+objectList2[i].age+' name:'+objectList2[i].name);
+            }
+
+
+             
+             
+        </script>
+    </body>
+</html>

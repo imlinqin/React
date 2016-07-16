@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>智能浮动</title>
+    <style>
+        body{padding:0;margin:0;}
+        .wrapper{
+            width:1000px;
+            margin: 0 auto;
+        }
+        .header{
+            height:100px;
+            background-color:palevioletred;
+            color:#fff;
+            text-align:center;
+        }
+        .container{
+            overflow:hidden;position:relative;
+        }
+        .menu{position:absolute;top:0;left:auto;width:300px;background-color:chocolate;color:#fff;padding:20px 0;overflow:hidden}
+        .menu .foot{position:absolute;bottom:0;left:0;}
+        .main{
+           margin-left:300px;width:700px;height:1200px;background-color:blueviolet;
+        }
+        .footer{
+            height:200px;background-color:cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">头部</div>
+        <div class="container">
+            <div class="menu" id="menu">如果 shouldComponentUpdate 返回 false，则 render() 将不会执行，直到下一次 state 改变。（另外，componentWillUpdate 和 componentDidUpdate 也不会被调用。）
+默认情况下，shouldComponentUpdate 总会返回 true，在 state 改变的时候避免细微的 bug，但是如果总是小心地把 state 当做不可变的，在 render() 中只从 props 和 state 读取值，此时你可以覆盖 shouldComponentUpdate 方法，实现新老 props 和 state 的比对逻辑。
+如果性能是个瓶颈，尤其是有几十个甚至上百个组件的时候，使用 shouldComponentUpdate 可以提升应用的性能。
+
+更新： componentWillUpdate 
+componentWillUpdate(object nextProps, object nextState)
+            做不可变的，在 render() 中只从 props 和 state 读取值，此时你可以覆盖 shouldComponentUpdate 方法，实现新老 props 和 state 的比对逻辑。
+如果性能是个瓶颈，尤其是有几十个甚至上百个组件的时候，使用 shouldComponentUpdate 可以提升应用的性能。
+
+更新： componentWillUpdate 
+componentWillUpdate(object nextProps, object nextState)
+componentDidUpdate(object prevProps, object prevState)
+在组件的更新已经同步到 DOM 中之后立刻被调用。该方法不会在初始化渲染的时候调用。
+使用该方法可以在组件更新之后操作 DOM 元素<div class="foot">菜单底部</div></div>
+            <div class="main" id="main">
+                内容
+            </div>
+        </div>
+        <div class="footer" id="footer">底部</div>
+    </div>
+
+</body>
+
+</html>
+<script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script>
+    $(function(){ 
+    $("#menu").smartFloat('#footer','#main'); 
+}); 
+
+</script>
+<script src="smartFloat.js"></script>
+

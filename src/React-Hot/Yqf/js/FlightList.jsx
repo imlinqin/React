@@ -8,7 +8,7 @@ var FlightList = React.createClass({
         var {className,...props}=this.props;
         return (
     <div className={classNames('intlflight-list privilege', className) }>
-        <ul {...props}></ul>
+        <ul {...props} id='ullist'></ul>
     </div>
 )
     }
@@ -20,8 +20,24 @@ FlightList.list = React.createClass({
             component: 'div',
         }
     },
+    getInitialState:function(){
+        return {
+            tax:false,
+        }
+    },
     onclick: function () {
-        PubSub.publish('products', {id:this.props.name,cc:'22'});
+        PubSub.publish('products', {id:this.props.index});
+    },
+
+    componentDidMount: function () {
+    this.pubsub_token = PubSub.subscribe('listtax', function () {
+             this.setState({
+        tax: !this.state.tax,
+        })
+    }.bind(this));
+  },
+  componentWillUnmount: function () {
+    PubSub.unsubscribe(this.pubsub_token);
   },
 
     //数组求和
@@ -33,13 +49,13 @@ FlightList.list = React.createClass({
         return nameSum;
     },
     render: function () {
-        var {className, href,index, component, flightdata,onAction,...props}=this.props;
+        var {className, href,index,onClick,component, flightdata,onAction,...props}=this.props;
         var item= flightdata;
         var Component = href ? 'a' : component;
-        var clickHandle = (typeof index == 'function') ? index : this.handleToggle;
+        var clickHandle = onClick ? onClick : this.onclick;
 
         return (
-    <Component className={classNames('item-list') } onClick={this.onclick}>
+    <Component className={classNames('item-list') } onClick={clickHandle}>
         <span className="time dep">{item[0].depDate}</span>
         <span className="airport dep"><em className="airport-name">{item[0].arriveTerminal}</em><em className="terminal">T2</em></span>
         <span className="time arrive">{item[1].arriveDAte}<em>+1</em></span>
@@ -53,11 +69,11 @@ FlightList.list = React.createClass({
         </div>
         <span className="price">
             ¥<em>
-                {this.sum(item, 'price') }
+                 {this.state.tax ? this.sum(item, 'price') :  (this.sum(item, 'price') > this.sum(item, 'tax') ?this.sum(item, 'price') - this.sum(item, 'tax') : this.sum(item, 'tax') - this.sum(item, 'price') ) } 
             </em>
         </span>
 
-        <span className="tax">全程含税价</span>
+        <span className="tax">{this.state.tax ? '全程含税价' :'税费¥'+this.sum(item, 'tax') }</span>
         <div className="infobox">
             <span className="info">
                 <img className="air-ico vam" src={item[0].airline.logo} />{item[0].airline.name} {item[0].flightNo}
@@ -77,13 +93,22 @@ FlightList.list = React.createClass({
 });
 
 FlightList.detail = React.createClass({
+    getInitialState:function(){
+        return {
+            selected:false,
+        }
+    },
 componentDidMount: function () {
-    this.pubsub_token = PubSub.subscribe('products', function (topic, product) {
-        console.log(topic);
-        console.log(product);
-      this.setState({
-        selection: product.id
+    this.pubsub_token = PubSub.subscribe('products', function (topic, attr) {
+       
+        if( this.props.index== attr.id){
+             this.setState({
+        selected: !this.state.selected,
       });
+
+        }
+
+     
     }.bind(this));
   },
   componentWillUnmount: function () {
@@ -95,7 +120,7 @@ componentDidMount: function () {
         //  var subItem= flightdata;
         //console.log(flightdata);
         return (
-            <div className={classNames('item-detail') }>
+            <div className={classNames('item-detail',this.state.selected ? 'active':null) }>
                         <div className="item-link">
                             {flightdata.map(function(subItem,index){
                                 return  <div key={index}>
@@ -170,27 +195,27 @@ FlightList.item = React.createClass({
 
 
     render: function () {
-        var {className, href,key, component, flightDate,...props} = this.props;
+        var {className, href,key,index, component, flightDate,...props} = this.props;
         //console.log(flightDate);
         // return this.renderList();
         var item = flightDate;
-        var index=key;
+        
         var isArray = item[0] instanceof Array;
         var isSelect = this.state.selected ? 'active' : null;
         var multiList = [
-        <FlightList.list flightdata={item[0]} name='bb' />, <dl className={classNames('item-listbox') }>
+        <FlightList.list flightdata={item[0]} name='bb' index={'list'+index} onClick={this.handleToggle}  />, <dl className={classNames('item-listbox',this.state.selected ? 'active' :null) } index={'list'+index}>
     {item.map(function(sitem,index){
     return <dd key={index}>
-    <FlightList.list flightdata={sitem} index={index} />
-    <FlightList.detail flightdata={sitem} index={index} />
+    <FlightList.list flightdata={sitem} index={'sublist'+index} />
+    <FlightList.detail flightdata={sitem} index={'sublist'+index} />
     </dd>
     })}
            
         </dl>];
         var simpList = [
-        <FlightList.list flightdata={item} index={index} name='kk' />, <FlightList.detail flightdata={item} index={key} />];
+        <FlightList.list flightdata={item} index={'list'+index} name='kk' />, <FlightList.detail flightdata={item} index={'list'+index} />];
 
-        return <li {...props}
+        return <li {...props} key={key}
                    className={classNames(className) }>
             { isArray ? multiList : simpList }
 

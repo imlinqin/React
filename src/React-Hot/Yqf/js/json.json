@@ -146,7 +146,7 @@
                 depDate: "14:35",
                 arriveDAte: "18:11",
                 depTerminal: "新加坡樟宜机场",
-                arriveTerminal: "美国新白云机场",
+                arriveTerminal: "美国新白云机场1",
                 airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
                 flightNo: "A380",
                 flightTime: "8h3m",

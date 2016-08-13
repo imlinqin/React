@@ -426,7 +426,7 @@ var App = React.createClass({
     componentDidMount: function () {
                     console.log('lldd','63');
 
-        $.get("https://api.github.com/users/octocat/gists", function(result) {
+        $.get("https://raw.githubusercontent.com/imlinqin/React/master/src/React-Hot/Yqf/js/json.json", function(result) {
             var lastGist = result;
             console.log('ll',result);
             console.log('ll2',flightDate);

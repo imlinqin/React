@@ -145,7 +145,7 @@ const Tabs = React.createClass({
         <Tabs.Item
           active={eventKey === activeKey}
           enventKey={eventKey}
-          key={'tabPanel' + index}
+           key={'tabPanel' + index}
           {...props}
         >
           {children}

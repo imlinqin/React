@@ -4,6 +4,7 @@ var Container = require('./Container.jsx');
 var NavBar = require('./NavBar.jsx');
 var ToolBar = require('./ToolBar.jsx');
 var Switch = require('./Switch.jsx');
+require('./style.css');
 
 
 var  clickHandler = function(e) {
@@ -62,7 +63,7 @@ var App = React.createClass({
         this.setState({
             selected: key
         }, function() {
-           // console.log('选中了： %s', this.state.selected);
+           // console.logd('选d中了： %sd', this.state.selected);
        //  console.log(this)
         });
     },
@@ -100,4 +101,41 @@ var App = React.createClass({
     }
 
 });
-ReactDOM.render(<App />, document.getElementById('root'));
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+
+var TodoList = React.createClass({
+
+  getInitialState: function() {
+    return {items: ['hello', 'world', 'click', 'me']};
+  },
+  handleAdd: function() {
+    var newItems =
+      this.state.items.concat([prompt('Enter some text')]);
+    this.setState({items: newItems});
+  },
+  handleRemove: function(i) {
+    var newItems = this.state.items.slice();
+    newItems.splice(i, 1);
+    this.setState({items: newItems});
+  },
+  render: function() {
+    var items = this.state.items.map(function(item, i) {
+      return (
+        <div key={item} onClick={this.handleRemove.bind(this, i)}>
+          {item}
+        </div>
+      );
+    }.bind(this));
+    return (
+      <div>
+        <button onClick={this.handleAdd}>Add Item</button>
+        <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={3000}>
+          {items}
+        </ReactCSSTransitionGroup>
+      </div>
+    );
+  }
+});
+
+
+ReactDOM.render(<TodoList />, document.getElementById('root'));

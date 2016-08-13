@@ -22,13 +22,17 @@
     <style>
         .accordion .accordion-body{display:none;}
         .accordion .accordion-item.active .accordion-body{display:block;}
+        
+        .home{position:absolute;width:100px;height:100px;background-color:#000;left:0;top:50px;}
+        .abc{position:absolute;width:50px;height:50px;background-color:blue;left:20px;top:0;z-index:1;}
+        #root{position:absolute;width:100px;height:100px;background-color:red;z-index:0;left:50px;top:50px;}
     </style>
 </head>
 <body>
-    <div class="icon-home"></div>
-  <div id="root">
+    <div class="home"><div class="abc"></div></div>
+        <div id="root">
   </div>
   <!-- app.js 为上面的代码编译打包后的文件 -->
-    <script src="/static/bundle.js"></script>
+    <!--<script src="/static/bundle.js"></script>-->
 </body>
 </html>

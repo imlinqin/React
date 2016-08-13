@@ -1,4 +1,4 @@
-/// <binding Clean='webpack' />
+/// <binding Clean='webpack, default' />
 var gulp = require('gulp');
 var webpack = require("gulp-webpack");
 var webpackConfig = require("./webpack.config.js");

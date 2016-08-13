@@ -6,7 +6,7 @@ module.exports = {
     entry: [
       'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/only-dev-server',
-      './yqf/js/index'
+      './yqf/js/index1'
     ],
     output: {
         path: path.join(__dirname, 'dist'),
@@ -14,6 +14,11 @@ module.exports = {
         publicPath: '/static/'
     },
     plugins: [
+         new webpack.ProvidePlugin({
+        $: "webpack-zepto",
+      
+    }),
+
       new webpack.HotModuleReplacementPlugin()
     ],
     module: {
@@ -21,7 +26,9 @@ module.exports = {
             test: /\.js[x]?$/,
             loaders: ['react-hot', 'babel'],
             include: path.join(__dirname, 'yqf/js')
-        }]
+        },
+         {test:/\.css$/,loader:"style-loader!css-loader"},
+        ]
     },
     resolve: {
         extensions: ['', '.js', '.jsx']

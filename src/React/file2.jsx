@@ -1,3 +1,1 @@
-import React, {
-  PropTypes,
-} from 'react';
+import '../css/StyleSheet.css';

@@ -13,6 +13,7 @@ var ToolBar = React.createClass({
         }
 
     },
+    
     render: function () {
         var {component:Component,
         className,
@@ -71,6 +72,11 @@ ToolBar.Item =React.createClass({
             onAction:function(){}
         }
     },
+      getInitialState: function () {
+        return {
+            abc: '213',
+        };
+    },
     renderIcon:function(){
         var {icon,}=this.props;
         var iconClass='icon-'+ icon;
@@ -88,16 +94,25 @@ ToolBar.Item =React.createClass({
          PubSub.publish('sort');
     
     },
+    onclick:function(){
+        this.setState({
+            abc:'66'
+        })
+    },
     render:function(){
         var {component,
         className,
             active,
             children,
+            onAction,
             ...props
         }=this.props;
        // console.log(component);
         var  Component = this.props.href ? 'a' : component;
-
+        if(onAction&&active){
+         //   console.log('ismodal','打开')
+            onAction.bind(null);
+        }
         return (
             <Component {...props} className={ClassNames('tab-item',className,{'active':active})} >
                 {children ? this.props.children :[

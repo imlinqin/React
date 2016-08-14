@@ -24,7 +24,7 @@ var clickHandler = function (e) {
     // this.setAttribute('id','hah');
 
     console.log(e);
-    
+
 };
 
 
@@ -61,91 +61,50 @@ rightNav: [itemRight],
     onAction: clickHandler,
     };
 // 机票数据
-    const flightDate =[
+const flightDate =[
+[
     [
-        [
 
-            {
-                depDate: "12:35",
-                arriveDAte: "18:11",
-                depTerminal: "悲观新白云机场",
-                arriveTerminal: "阳江坡樟宜机场",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国d泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3689",
-                tax: "269",
-                monetaryUnit: "&yen;",
+        {
+            depDate: "12:35",
+            arriveDAte: "18:11",
+            depTerminal: "悲观新白云机场",
+            arriveTerminal: "阳江坡樟宜机场",
+            airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国d泰航空" },
+            flightNo: "A380",
+            flightTime: "8h3m",
+            price: "3689",
+            tax: "269",
+            monetaryUnit: "&yen;",
 
-            },
+        },
 
-            {
-                depDate: "14:35",
-                arriveDAte: "18:11",
-                depTerminal: "新 加坡樟宜机场",
-                arriveTerminal: "美国新白云机场",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国d泰航 空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3001",
-                tax: "289",
-                monetaryUnit: "&yen;",
-            },
-            {
-                depDate: "14:35",
-                arriveDAte: "18:11",
-                depTerminal: "新加坡樟d宜机场",
-                arriveTerminal: "美国新白云机场",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰y航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3000",
-                tax: "289",
-                monetaryUnit: "&yen;",
-            },
+        {
+            depDate: "14:35",
+            arriveDAte: "18:11",
+            depTerminal: "新 加坡樟宜机场",
+            arriveTerminal: "美国新白云机场",
+            airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国d泰航 空" },
+            flightNo: "A380",
+            flightTime: "8h3m",
+            price: "3001",
+            tax: "289",
+            monetaryUnit: "&yen;",
+        },
+        {
+            depDate: "14:35",
+            arriveDAte: "18:11",
+            depTerminal: "新加坡樟d宜机场",
+            arriveTerminal: "美国新白云机场",
+            airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰y航空" },
+            flightNo: "A380",
+            flightTime: "8h3m",
+            price: "3000",
+            tax: "289",
+            monetaryUnit: "&yen;",
+        },
 
-        ], [
-
-            {
-                depDate: "12:35",
-                arriveDAte: "18:11",
-                depTerminal: "广州新白云机场",
-                arriveTerminal: "新加坡樟宜机场",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3689",
-                tax: "269",
-                monetaryUnit: "&yen;",
-
-            },
-
-            {
-                depDate: "14:35",
-                arriveDAte: "18:11",
-                depTerminal: "新加坡樟宜机场",
-                arriveTerminal: "美国新白云机场",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3001",
-                tax: "289",
-                monetaryUnit: "&yen;",
-            },
-            {
-                depDate: "14:35",
-                arriveDAte: "18:11",
-                depTerminal: "新加坡樟宜机场",
-                arriveTerminal: "美国新白云机场",
-                airline: { logo:"http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3000",
-                tax: "289",
-                monetaryUnit: "&yen;",
-            },
-
-        ]], [
+    ], [
 
         {
             depDate: "12:35",
@@ -176,102 +135,101 @@ rightNav: [itemRight],
         {
             depDate: "14:35",
             arriveDAte: "18:11",
-            depTerminal: "阿富汗机场",
-            arriveTerminal: "巴黎新白云机场",
-            airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+            depTerminal: "新加坡樟宜机场",
+            arriveTerminal: "美国新白云机场",
+            airline: { logo:"http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
             flightNo: "A380",
             flightTime: "8h3m",
-            price: "3200",
-            tax: "279",
+            price: "3000",
+            tax: "289",
             monetaryUnit: "&yen;",
         },
 
-        ],
+    ]], [
+
+    {
+        depDate: "12:35",
+        arriveDAte: "18:11",
+        depTerminal: "广州新白云机场",
+        arriveTerminal: "新加坡樟宜机场",
+        airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+        flightNo: "A380",
+        flightTime: "8h3m",
+        price: "3689",
+        tax: "269",
+        monetaryUnit: "&yen;",
+
+    },
+
+    {
+        depDate: "14:35",
+        arriveDAte: "18:11",
+        depTerminal: "新加坡樟宜机场",
+        arriveTerminal: "美国新白云机场",
+        airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+        flightNo: "A380",
+        flightTime: "8h3m",
+        price: "3001",
+        tax: "289",
+        monetaryUnit: "&yen;",
+    },
+    {
+        depDate: "14:35",
+        arriveDAte: "18:11",
+        depTerminal: "阿富汗机场",
+        arriveTerminal: "巴黎新白云机场",
+        airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+        flightNo: "A380",
+        flightTime: "8h3m",
+        price: "3200",
+        tax: "279",
+        monetaryUnit: "&yen;",
+    },
+
+    ],
+[
     [
-        [
 
-            {
-                depDate: "12:35",
-                arriveDAte: "18:11",
-                depTerminal: "悲观新白云机场",
-                arriveTerminal: "阳江坡樟宜机场",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3689",
-                tax: "269",
-                monetaryUnit: "&yen;",
+        {
+            depDate: "12:35",
+            arriveDAte: "18:11",
+            depTerminal: "悲观新白云机场",
+            arriveTerminal: "阳江坡樟宜机场",
+            airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+            flightNo: "A380",
+            flightTime: "8h3m",
+            price: "3689",
+            tax: "269",
+            monetaryUnit: "&yen;",
 
-            },
+        },
 
-            {
-                depDate: "14:35",
-                arriveDAte: "18:11",
-                depTerminal: "新加坡樟宜机场",
-                arriveTerminal: "美国新白云机场1",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3001",
-                tax: "289",
-                monetaryUnit: "&yen;",
-            },
-            {
-                depDate: "14:35",
-                arriveDAte: "18:11",
-                depTerminal: "新加坡樟宜机场",
-                arriveTerminal: "美国新白云机场",
-                airline: { logo:"http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3000",
-                tax: "289",
-                monetaryUnit: "&yen;",
-            },
+        {
+            depDate: "14:35",
+            arriveDAte: "18:11",
+            depTerminal: "新加坡樟宜机场",
+            arriveTerminal: "美国新白云机场1",
+            airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+            flightNo: "A380",
+            flightTime: "8h3m",
+            price: "3001",
+            tax: "289",
+            monetaryUnit: "&yen;",
+        },
+        {
+            depDate: "14:35",
+            arriveDAte: "18:11",
+            depTerminal: "新加坡樟宜机场",
+            arriveTerminal: "美国新白云机场",
+            airline: { logo:"http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+            flightNo: "A380",
+            flightTime: "8h3m",
+            price: "3000",
+            tax: "289",
+            monetaryUnit: "&yen;",
+        },
 
-        ], [
-
-            {
-                depDate: "12:35",
-                arriveDAte: "18:11",
-                depTerminal: "广州新白云机场",
-                arriveTerminal: "新加坡樟宜机场",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3689",
-                tax: "269",
-                monetaryUnit: "&yen;",
-
-            },
-
-            {
-                depDate: "14:35",
-                arriveDAte: "18:11",
-                depTerminal: "新加坡樟宜机场",
-                arriveTerminal: "美国新白云机场",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3001",
-                tax: "289",
-                monetaryUnit: "&yen;",
-            },
-            {
-                depDate: "14:35",
-                arriveDAte: "18:11",
-                depTerminal: "新加坡樟宜机场",
-                arriveTerminal: "美国新白云机场",
-                airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-                flightNo: "A380",
-                flightTime: "8h3m",
-                price: "3000",
-                tax: "289",
-                monetaryUnit: "&yen;",
-            },
-
-        ]],
-    [
+    ], [
 
         {
             depDate: "12:35",
@@ -281,7 +239,7 @@ rightNav: [itemRight],
             airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
             flightNo: "A380",
             flightTime: "8h3m",
-            price: "4000",
+            price: "3689",
             tax: "269",
             monetaryUnit: "&yen;",
 
@@ -302,68 +260,102 @@ rightNav: [itemRight],
         {
             depDate: "14:35",
             arriveDAte: "18:11",
-            depTerminal: "阿富汗机场",
-            arriveTerminal: "巴黎新白云机场",
-            airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-            flightNo: "A380",
-            flightTime: "8h3m",
-            price: "3200",
-            tax: "279",
-            monetaryUnit: "&yen;",
-        },
-
-    ], [
-
-        {
-            depDate: "12:35",
-            arriveDAte: "18:11",
-            depTerminal: "广州新白云机场",
-            arriveTerminal: "新加坡樟宜机场",
-            airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-            flightNo: "A380",
-            flightTime: "8h3m",
-            price: "200",
-            tax: "269",
-            monetaryUnit: "&yen;",
-
-        },
-
-        {
-            depDate: "14:35",
-            arriveDAte: "18:11",
             depTerminal: "新加坡樟宜机场",
             arriveTerminal: "美国新白云机场",
             airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
             flightNo: "A380",
             flightTime: "8h3m",
-            price: "2",
+            price: "3000",
             tax: "289",
             monetaryUnit: "&yen;",
         },
-        {
-            depDate: "14:35",
-            arriveDAte: "18:11",
-            depTerminal: "阿富汗机场",
-            arriveTerminal: "巴黎新白云机场",
-            airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
-            flightNo: "A380",
-            flightTime: "8h3m",
-            price: "1",
-            tax: "279",
-            monetaryUnit: "&yen;",
-        },
 
-    ]];
+    ]],
+[
 
-flightDate.map(function (item, index) {
-    if (item[0] instanceof Array) {
-        console.log('Array')
-    }
-    else if (item[0] instanceof Object) {
-        console.log('Object')
-    }
-    console.log(item[0]);
-});
+    {
+        depDate: "12:35",
+        arriveDAte: "18:11",
+        depTerminal: "广州新白云机场",
+        arriveTerminal: "新加坡樟宜机场",
+        airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+        flightNo: "A380",
+        flightTime: "8h3m",
+        price: "4000",
+        tax: "269",
+        monetaryUnit: "&yen;",
+
+    },
+
+    {
+        depDate: "14:35",
+        arriveDAte: "18:11",
+        depTerminal: "新加坡樟宜机场",
+        arriveTerminal: "美国新白云机场",
+        airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+        flightNo: "A380",
+        flightTime: "8h3m",
+        price: "3001",
+        tax: "289",
+        monetaryUnit: "&yen;",
+    },
+    {
+        depDate: "14:35",
+        arriveDAte: "18:11",
+        depTerminal: "阿富汗机场",
+        arriveTerminal: "巴黎新白云机场",
+        airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+        flightNo: "A380",
+        flightTime: "8h3m",
+        price: "3200",
+        tax: "279",
+        monetaryUnit: "&yen;",
+    },
+
+], [
+
+    {
+        depDate: "12:35",
+        arriveDAte: "18:11",
+        depTerminal: "广州新白云机场",
+        arriveTerminal: "新加坡樟宜机场",
+        airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+        flightNo: "A380",
+        flightTime: "8h3m",
+        price: "200",
+        tax: "269",
+        monetaryUnit: "&yen;",
+
+    },
+
+    {
+        depDate: "14:35",
+        arriveDAte: "18:11",
+        depTerminal: "新加坡樟宜机场",
+        arriveTerminal: "美国新白云机场",
+        airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+        flightNo: "A380",
+        flightTime: "8h3m",
+        price: "2",
+        tax: "289",
+        monetaryUnit: "&yen;",
+    },
+    {
+        depDate: "14:35",
+        arriveDAte: "18:11",
+        depTerminal: "阿富汗机场",
+        arriveTerminal: "巴黎新白云机场",
+        airline: { logo: "http://airlineico.b0.upaiyun.com/TZ.png!16x16", name: "国泰航空" },
+        flightNo: "A380",
+        flightTime: "8h3m",
+        price: "1",
+        tax: "279",
+        monetaryUnit: "&yen;",
+    },
+
+]];
+
+
 
 var App = React.createClass({
 
@@ -407,7 +399,7 @@ var App = React.createClass({
             abc: 'a',
             donghua: false,
             popup: false,
-             flightDate:[]
+            flightDate:[]
         };
     },
 
@@ -424,18 +416,18 @@ var App = React.createClass({
     //},
 
     componentDidMount: function () {
-                    console.log('lldd','63');
+        console.log('lldd','63');
 
-        $.getJSON("https://raw.githubusercontent.com/imlinqin/React/master/src/React-Hot/Yqf/js/json.json?1", function(result) {
+        $.get("https://raw.githubusercontent.com/imlinqin/React/master/src/React-Hot/Yqf/js/json.json?3", function(result) {
             var lastGist = result;
             console.log('ll',result);
             console.log('ll2',flightDate);
-      if (this.isMounted()) {
-        this.setState({
-         flightDate:lastGist
-        });
-      }
-    }.bind(this));
+            if (this.isMounted()) {
+                this.setState({
+                    flightDate:lastGist
+                });
+            }
+        }.bind(this));
 
 
         $('.bar').height(49);
@@ -505,11 +497,11 @@ var App = React.createClass({
     },
     render: function () {
         var that = this;
-        var flightDate2= this.state.flightDate.aa;
-                    console.log('数据',this.state.flightDate.aa);
+        var flightDate2= this.state.flightDate;
+        console.log('数据',this.state.flightDate);
 
         var flightDateSort = function () {
-            
+
             var priceSort = flightDate2.sort(function (a, b) {
                 if (!a[0].price) {
                     a[0].price = a[0][0].price
@@ -671,13 +663,13 @@ var Radio = React.createClass({
         return {value:{'A':true,'B':false,'C':false,'D':false}
         }},
     handleChange: function (valuebefore,value,infinite,event) {
-          //    console.log('hh2',event.target.value);
-                console.log('abcd',valuebefore)
+        //    console.log('hh2',event.target.value);
+        console.log('abcd',valuebefore)
         if (this.props.onAction) {
             this.props.onAction(valuebefore,value,infinite);
         }
 
-      //  valuebefore[value]=!valuebefore[value];
+        //  valuebefore[value]=!valuebefore[value];
         //console.log('abc',valuebefore)
         //this.setState({
         //    value: valuebefore
@@ -695,15 +687,15 @@ var Radio = React.createClass({
         React.Children.forEach(this.props.children, function (child, i) {
 
             var {type,title,value,name,infinite,...props}= child.props;
-        
+
 
             if(value in valuebefore){
-        
+
                 var zhi=valuebefore[value];
             }
-         
-          
-           
+
+
+
             var label = <label>
                 <input type={type}
                        name={name}
@@ -723,7 +715,7 @@ var Radio = React.createClass({
 var MyForm = React.createClass({
     getInitialState:function(){
         return {myradio:{'A':true,'B':true,'C':true,'D':false}
-}
+        }
     },//
     handleChange:function(valuebefore,value,infinite){
         //   console.log('hh1',event.target.value);
@@ -735,19 +727,19 @@ var MyForm = React.createClass({
         }
         else{
             valuebefore[value]=!valuebefore[value];
-             valuebefore['D']= false;
+            valuebefore['D']= false;
         }
         this.setState({
             myradio:valuebefore
         })
     },//
     render:function(){
-        return <Radio onAction={this.handleChange} defaultRadio={this.state.myradio} >
+        return <Radio onAction={this.handleChange} defaultRadio={this.state.myradio}>
     <input type='checkbox' value='A' title='我的算法' name='AA' />
     <input type='checkbox' value='B' title='这是B' name='BB' />
     <input type='checkbox' value='C' title='这是C' name='CC' />
-    <input type='checkbox' value='D' title='不限' name='DD'  infinite />
-        </Radio>  
+    <input type='checkbox' value='D' title='不限' name='DD' infinite />
+        </Radio>
 
     }
 

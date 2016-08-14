@@ -426,7 +426,7 @@ var App = React.createClass({
     componentDidMount: function () {
                     console.log('lldd','63');
 
-        $.get("https://raw.githubusercontent.com/imlinqin/React/master/src/React-Hot/Yqf/js/json.json", function(result) {
+        $.getJSON("https://raw.githubusercontent.com/imlinqin/React/master/src/React-Hot/Yqf/js/json.json?1", function(result) {
             var lastGist = result;
             console.log('ll',result);
             console.log('ll2',flightDate);
@@ -505,8 +505,8 @@ var App = React.createClass({
     },
     render: function () {
         var that = this;
-        var flightDate2= this.state.flightDate;
-                    console.log('数据',this.state.flightDate);
+        var flightDate2= this.state.flightDate.aa;
+                    console.log('数据',this.state.flightDate.aa);
 
         var flightDateSort = function () {
             

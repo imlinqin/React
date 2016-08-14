@@ -418,7 +418,7 @@ var App = React.createClass({
     componentDidMount: function () {
         console.log('lldd','63');
 
-        $.getJSON("https://raw.githubusercontent.com/imlinqin/React/master/src/React-Hot/Yqf/js/json.js?2u87", function(result) {
+        $.getJSON("https://raw.githubusercontent.com/imlinqin/React/master/src/React-Hot/Yqf/js/json.js?2o7", function(result) {
                         var lastGist = result[0];
 
             console.log('ll',result[0]);

@@ -418,15 +418,18 @@ var App = React.createClass({
     componentDidMount: function () {
         console.log('lldd','63');
 
-        $.get("https://raw.githubusercontent.com/imlinqin/React/master/src/React-Hot/Yqf/js/json.json?3", function(result) {
-            var lastGist = result;
-            console.log('ll',result);
+        $.getJSON("https://raw.githubusercontent.com/imlinqin/React/master/src/React-Hot/Yqf/js/gists", function(result) {
+                        var lastGist = result[0];
+
+            console.log('ll',result[0]);
             console.log('ll2',flightDate);
-            if (this.isMounted()) {
-                this.setState({
-                    flightDate:lastGist
-                });
-            }
+      if (this.isMounted()) {
+        this.setState({
+          username: lastGist.owner.login,
+          lastGistUrl: lastGist.html_url
+        });
+      }
+
         }.bind(this));
 
 
